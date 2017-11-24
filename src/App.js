@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/navbar/navbar.js'
 import TodoContainer from './components/todos/TodoContainer.js'
 import LoginForm from './components/login/LoginForm.js'
+import { Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
   state = {
@@ -52,17 +53,20 @@ class App extends Component {
         <NavBar
           handleclick={this.handleClick}
         />
-        <TodoContainer
+        <Redirect to='/home'/>
+        <Route exact path="/home" render={(props) => <TodoContainer {...props}
           userId={this.state.currUserId}
-        />
+        />}/>
       </div>
       )
     } else {
       return (
-        <LoginForm
-          handleChange={this.handleLoginChange}
-          handleSubmit={this.handleLoginSubmit}
-        />
+        <div>
+          <Route exact path="/" render={() => <LoginForm
+            handleChange={this.handleLoginChange}
+            handleSubmit={this.handleLoginSubmit}
+          />}/>
+        </div>
       )
     }
   }

@@ -74,6 +74,7 @@ export default class TodoContainer extends React.Component {
 
   render() {
     console.log(this.state)
+    console.log(this.props)
     return(
       <div className='todo-container'>
         <NewTodoInput
