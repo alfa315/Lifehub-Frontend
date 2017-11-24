@@ -11,18 +11,21 @@ export default class TodoContainer extends React.Component {
       todoDeadline: '',
       todoDescription: ''
     },
-    todoList: []
+    todoList: [],
+    shouldUpdate: true
   }
 
   componentWillMount() {
 		this.fetchTodos()
 	}
 
-  fetchTodos() {
+
+  fetchTodos = () => {
 		fetch(`http://localhost:3000/api/v1/users/${this.props.userId}`)
 		 .then(response => response.json())
 		 .then(data => this.setState({
-       todoList: data.todos
+       todoList: data.todos,
+       shouldUpdate: false
     }))
 	}
 
@@ -41,7 +44,6 @@ export default class TodoContainer extends React.Component {
         'Accept': 'application/json'
       }
     })
-    .then(res => res.json())
   }
 
   handleChange = (event) => {
@@ -55,7 +57,19 @@ export default class TodoContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.postTodo()
+    this.setState({
+      shouldUpdate: true
+    })
+    this.forceUpdate()
     event.target.reset()
+  }
+
+  shouldComponentUpdate() {
+    return this.state.shouldUpdate === true
+  }
+
+  componentDidUpdate() {
+    this.fetchTodos()
   }
 
   render() {
