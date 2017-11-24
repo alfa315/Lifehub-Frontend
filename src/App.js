@@ -42,12 +42,17 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <TodoContainer userId={this.state.currUserId}/>
+        <TodoContainer
+          userId={this.state.currUserId}
+        />
       </div>
       )
     } else {
       return (
-        <LoginForm handleChange={this.handleLoginChange} handleSubmit={this.handleLoginSubmit}/>
+        <LoginForm
+          handleChange={this.handleLoginChange}
+          handleSubmit={this.handleLoginSubmit}
+        />
       )
     }
   }

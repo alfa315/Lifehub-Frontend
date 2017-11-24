@@ -14,6 +14,22 @@ export default class TodoContainer extends React.Component {
     todoList: []
   }
 
+  componentWillMount() {
+		this.fetchTodos()
+	}
+
+  componentDidUpdate() {
+    this.fetchTodos()
+  }
+
+  fetchTodos() {
+		fetch(`http://localhost:3000/api/v1/users/${this.props.userId}`)
+		 .then(response => response.json())
+		 .then(data => this.setState({
+       todoList: data.todos
+    }))
+	}
+
   handleChange = (event) => {
     this.setState({
       newTodo: {
@@ -42,17 +58,14 @@ export default class TodoContainer extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const updatingList = this.state.todoList
-    updatingList.push(this.state.newTodo)
-    this.setState({
-      todoList: updatingList
-    })
     this.postTodo()
+    this.fetchTodos()
     event.target.reset()
   }
 
 
   render() {
+    console.log(this.state)
     return(
       <div className='todo-container'>
         <NewTodoInput
