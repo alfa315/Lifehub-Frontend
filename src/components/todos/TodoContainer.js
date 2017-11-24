@@ -22,6 +22,24 @@ export default class TodoContainer extends React.Component {
     })
   }
 
+  postTodo = () => {
+    fetch('http://127.0.0.1:3000/api/v1/todos', {
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: `${this.props.userId}`,
+        todo_name: `${this.state.newTodo.todoName}`,
+        todo_type: `${this.state.newTodo.todoType}`,
+        todo_description: `${this.state.newTodo.todoDescription}`,
+        todo_deadline: `${this.state.newTodo.todoDeadline}`
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => res.json())
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     const updatingList = this.state.todoList
@@ -29,11 +47,12 @@ export default class TodoContainer extends React.Component {
     this.setState({
       todoList: updatingList
     })
+    this.postTodo()
     event.target.reset()
   }
 
+
   render() {
-    console.log(this.state)
     return(
       <div className='todo-container'>
         <NewTodoInput
