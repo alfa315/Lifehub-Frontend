@@ -23,6 +23,9 @@ export default class TodoList extends React.Component {
               <th>
                 <h3 className="ui center aligned header">Deadline</h3>
               </th>
+              <th>
+                <h3 className="ui center aligned header">Options</h3>
+              </th>
             </tr>
           </thead>
           <tbody>
