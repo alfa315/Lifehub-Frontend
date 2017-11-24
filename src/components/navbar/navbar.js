@@ -14,7 +14,7 @@ const NavBar = (props) => {
           Weather
         </a>
       <div className="right menu">
-        <a className="ui item">
+        <a className="ui item" onClick={props.handleclick}>
           Logout
         </a>
       </div>

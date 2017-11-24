@@ -18,10 +18,6 @@ export default class TodoContainer extends React.Component {
 		this.fetchTodos()
 	}
 
-  componentDidUpdate() {
-    this.fetchTodos()
-  }
-
   fetchTodos() {
 		fetch(`http://localhost:3000/api/v1/users/${this.props.userId}`)
 		 .then(response => response.json())
@@ -29,14 +25,6 @@ export default class TodoContainer extends React.Component {
        todoList: data.todos
     }))
 	}
-
-  handleChange = (event) => {
-    this.setState({
-      newTodo: {
-        ...this.state.newTodo, [event.target.name]: event.target.value
-      }
-    })
-  }
 
   postTodo = () => {
     fetch('http://127.0.0.1:3000/api/v1/todos', {
@@ -56,13 +44,19 @@ export default class TodoContainer extends React.Component {
     .then(res => res.json())
   }
 
+  handleChange = (event) => {
+    this.setState({
+      newTodo: {
+        ...this.state.newTodo, [event.target.name]: event.target.value
+      }
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     this.postTodo()
-    this.fetchTodos()
     event.target.reset()
   }
-
 
   render() {
     console.log(this.state)

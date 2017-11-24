@@ -36,12 +36,22 @@ class App extends Component {
     this.fetchUser()
   }
 
+  handleClick = (event) => {
+    event.preventDefault()
+    this.setState({
+      currUserId: null,
+      currUsername: ''
+    })
+  }
+
   render() {
     console.log(this.state)
     if(this.state.currUserId) {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar
+          handleclick={this.handleClick}
+        />
         <TodoContainer
           userId={this.state.currUserId}
         />
