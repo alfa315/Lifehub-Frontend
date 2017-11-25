@@ -4,7 +4,7 @@ import Item from './Item.js'
 export default class TodoList extends React.Component {
 
   render() {
-    let todoRows = this.props.list.map((todo, idx) => <Item item={todo} key={idx} />)
+    let todoRows = this.props.list.map((todo, idx) => <Item item={todo} key={idx} handleDelete={this.props.handleDelete} />)
     return(
       <div className="ui container">
         <h1>Current Todo List</h1>

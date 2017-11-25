@@ -10,7 +10,7 @@ const Item = (props) => {
 			<td>{props.item.todo_type}</td>
 			<td>{props.item.todo_description}</td>
       <td>{props.item.deadline}</td>
-      <td> <CompleteItemButton/> <EditItemButton/> <DeleteItemButton/> </td>
+      <td> <CompleteItemButton/> <EditItemButton/> <DeleteItemButton handleDelete={props.handleDelete} itemId={props.item.id}/> </td>
 		</tr>
 	)
 }
