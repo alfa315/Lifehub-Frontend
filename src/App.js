@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBar from './components/navbar/navbar.js'
-import TodoContainer from './components/todos/TodoContainer.js'
+import HomePage from './components/home/HomePage.js'
 import LoginForm from './components/login/LoginForm.js'
+import EventsContainer from './components/events/EventsContainer.js'
 import { Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
   state = {
     currUsername: '',
-    currUserId: null
+    currUserId: null,
+    currUserZipCode: 10001
   }
 
   fetchUser() {
@@ -45,18 +46,28 @@ class App extends Component {
     })
   }
 
+  handleEventsChange = (event) => {
+    this.setState({
+      currUserZipCode: event.target.value
+    })
+  }
+
+  handleEventsSubmit = (event) => {
+    event.preventDefault()
+  }
+
   render() {
     console.log(this.state)
     if(this.state.currUserId) {
     return (
       <div className="App">
-        <NavBar
-          handleclick={this.handleClick}
-        />
         <Redirect to='/home'/>
-        <Route exact path="/home" render={(props) => <TodoContainer {...props}
-          userId={this.state.currUserId}
-        />}/>
+        <Route exact path="/home" render={() => <HomePage handleClick={this.handleClick}
+          userId={this.state.currUserId} handleZipSubmit={this.handleEventsSubmit} handleZipChange={this.handleEventsChange}
+          />}
+        />
+        <Route exact path="/events" render={() => <EventsContainer zipCode={this.state.currUserZipCode}/>}
+        />
       </div>
       )
     } else {

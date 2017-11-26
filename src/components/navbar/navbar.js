@@ -5,12 +5,12 @@ const NavBar = (props) => {
   return (
     <div className='navbar'>
       <div className="ui secondary pointing menu large">
-        <Link to='/home' className="item active">
+        <Link to='/home' className="item">
           Home
         </Link>
-        <a className="item">
+        <Link to ='/events' className="item">
           Events
-        </a>
+        </Link>
         <a className="item">
           Weather
         </a>
