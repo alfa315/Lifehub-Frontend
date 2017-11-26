@@ -14,12 +14,12 @@ const EventsLister = (props) => {
       </div>
     )
   } else {
-    return <Grid stackable columns={2}>
+    return <Grid className='events-grid' stackable columns={2}>
       {props.userEvents.map((event) => {
         return(
           <Grid.Column>
             <Card.Group>
-              <Card>
+              <Card centered>
                 <Card.Content>
                   <Image floated='right' size='small' src={event.images[0].url} />
                   <Card.Header>

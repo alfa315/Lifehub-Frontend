@@ -30,3 +30,11 @@
 .loading-div {
   padding-top: 200px;
 }
+
+.todo-list-header {
+  text-align: center;
+}
+
+.modal-button {
+  text-align: center;
+}

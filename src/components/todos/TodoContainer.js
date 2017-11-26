@@ -1,5 +1,4 @@
 import React from 'react'
-import NewTodoInput from './NewTodoInput'
 import TodoList from './TodoList'
 
 
@@ -46,7 +45,6 @@ export default class TodoContainer extends React.Component {
     })
   }
 
-
   handleChange = (event) => {
     this.setState({
       newTodo: {
@@ -64,7 +62,6 @@ export default class TodoContainer extends React.Component {
     this.forceUpdate()
     event.target.reset()
   }
-
 
   shouldComponentUpdate() {
     return this.state.shouldUpdate === true
@@ -90,13 +87,11 @@ export default class TodoContainer extends React.Component {
     console.log(this.props)
     return(
       <div className='todo-container'>
-        <NewTodoInput
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
         <TodoList
           list={this.state.todoList}
           handleDelete={this.handleDelete}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
         />
       </div>
     )
