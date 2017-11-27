@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     currUsername: '',
     currUserId: null,
-    currUserZipCode: 10001
+    currUserSearch: 'New York'
   }
 
   fetchUser() {
@@ -48,7 +48,7 @@ class App extends Component {
 
   handleEventsChange = (event) => {
     this.setState({
-      currUserZipCode: event.target.value
+      currUserSearch: event.target.value
     })
   }
 
@@ -63,10 +63,10 @@ class App extends Component {
       <div className="App">
         <Redirect to='/home'/>
         <Route exact path="/home" render={(props) => <HomePage handleClick={this.handleClick}
-          userId={this.state.currUserId} handleZipSubmit={this.handleEventsSubmit} handleZipChange={this.handleEventsChange}
+          userId={this.state.currUserId} handleSearchSubmit={this.handleEventsSubmit} handleSearchChange={this.handleEventsChange}
           />}
         />
-        <Route exact path="/events" render={() => <EventsContainer zipCode={this.state.currUserZipCode} userId={this.state.currUserId}/>}
+        <Route exact path="/events" render={() => <EventsContainer searchTerm={this.state.currUserSearch} userId={this.state.currUserId}/>}
         />
       </div>
       )

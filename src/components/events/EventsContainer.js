@@ -14,7 +14,7 @@ export default class EventsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${this.props.zipCode}&apikey=u7p895FVKQxrpr0AENRKDrGDasWP2OLC`)
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${this.props.searchTerm.split(" ").join("%20")}&apikey=u7p895FVKQxrpr0AENRKDrGDasWP2OLC`)
      .then(response => response.json())
      .then(data => this.setState({
        myEvents: data._embedded.events
@@ -55,9 +55,13 @@ export default class EventsContainer extends React.Component {
   render() {
     console.log(this.state)
     return(
-      <div className='events-div'>
-        <NavBar />
-        <EventsLister handleChange={this.handleChange} handleSubmit={this.handleSubmit} userEvents={this.state.myEvents}/>
+      <div className='events-page'>
+        <div className='navbar'>
+          <NavBar />
+        </div>
+        <div className='events-list'>
+          <EventsLister handleChange={this.handleChange} handleSubmit={this.handleSubmit} userEvents={this.state.myEvents}/>
+        </div>
       </div>
     )
   }

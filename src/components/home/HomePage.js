@@ -19,10 +19,10 @@ class HomePage extends Component {
                     Event Search
                   </Card.Header>
                   <Card.Meta>
-                    Enter zip-code to find events
+                    Enter Search Term to Find Events
                   </Card.Meta>
                   <Card.Description>
-                    <EventSearchBox handleSubmit={this.props.handleZipSubmit} handleChange={this.props.handleZipChange}/>
+                    <EventSearchBox handleSubmit={this.props.handleSearchSubmit} handleChange={this.props.handleSearchChange}/>
                   </Card.Description>
                 </Card.Content>
               </Card>
