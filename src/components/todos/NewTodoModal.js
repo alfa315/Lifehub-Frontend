@@ -4,7 +4,7 @@ import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 const NewTodoModal = (props) => {
   return(
-    <Modal trigger={<div className='modal-button'><Button primary>Add New To-Do</Button></div>}>
+    <Modal trigger={<div className='modal-button'><Button color='green'>Add New To-Do</Button></div>}>
         <Modal.Header>Add New To-Do</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />

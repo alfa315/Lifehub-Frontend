@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBar from '../navbar/navbar.js'
 import TodoContainer from '../todos/TodoContainer.js'
 import EventSearchBox from '../events/EventSearchBox.js'
-import { Grid, Segment } from 'semantic-ui-react'
+import { Grid, Segment, Card, Image } from 'semantic-ui-react'
 
 class HomePage extends Component {
   render() {
@@ -12,11 +12,23 @@ class HomePage extends Component {
         <h1>LIFEHUB</h1>
         <Grid columns='equal'>
           <Grid.Row columns={2}>
-            <Grid.Column>
-              <Segment><EventSearchBox handleSubmit={this.props.handleZipSubmit} handleChange={this.props.handleZipChange}/></Segment>
+            <Grid.Column >
+              <Card centered>
+                <Card.Content>
+                  <Card.Header>
+                    Event Search
+                  </Card.Header>
+                  <Card.Meta>
+                    Enter zip-code to find events
+                  </Card.Meta>
+                  <Card.Description>
+                    <EventSearchBox handleSubmit={this.props.handleZipSubmit} handleChange={this.props.handleZipChange}/>
+                  </Card.Description>
+                </Card.Content>
+              </Card>
             </Grid.Column>
             <Grid.Column>
-              <Segment><p>Stuff 1</p></Segment>
+              <Segment><p>Daily Weather</p></Segment>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row centered columns={1}>
@@ -26,10 +38,10 @@ class HomePage extends Component {
           </Grid.Row>
           <Grid.Row columns={2}>
             <Grid.Column>
-              <Segment><p>Stuff 2</p></Segment>
+              <Segment><p>Goal of the Day</p></Segment>
             </Grid.Column>
             <Grid.Column>
-              <Segment><p>Stuff 3</p></Segment>
+              <Segment><p>Question of the Day</p></Segment>
             </Grid.Column>
           </Grid.Row>
         </Grid>

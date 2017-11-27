@@ -5,7 +5,7 @@ import { Button, Card, Image, Dimmer, Loader, Segment, Grid } from 'semantic-ui-
 const EventsLister = (props) => {
   if(props.userEvents.length === 0 || props.userEvents === undefined ) {
     return (
-      <div className= 'loading-div'>
+      <div className='ui-segment'>
         <Segment>
           <Dimmer active>
             <Loader size='huge' indeterminate>Preparing Files</Loader>

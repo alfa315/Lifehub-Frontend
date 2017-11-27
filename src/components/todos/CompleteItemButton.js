@@ -3,7 +3,7 @@ import { Button, Popup } from 'semantic-ui-react'
 
 const CompleteItemButton = () => (
   <Popup
-    trigger={<Button icon='checkmark' />}
+    trigger={<Button color='green' icon='checkmark' />}
     content='Completed Todo?'
   />
 )

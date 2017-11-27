@@ -62,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <Redirect to='/home'/>
-        <Route exact path="/home" render={() => <HomePage handleClick={this.handleClick}
+        <Route exact path="/home" render={(props) => <HomePage handleClick={this.handleClick}
           userId={this.state.currUserId} handleZipSubmit={this.handleEventsSubmit} handleZipChange={this.handleEventsChange}
           />}
         />
