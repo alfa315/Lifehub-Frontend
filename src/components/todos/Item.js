@@ -10,7 +10,21 @@ const Item = (props) => {
 			<td>{props.item.todo_type}</td>
 			<td>{props.item.todo_description}</td>
       <td>{props.item.deadline}</td>
-      <td> <CompleteItemButton/> <EditItemButton/> <DeleteItemButton handleDelete={props.handleDelete} itemId={props.item.id}/> </td>
+      <td>
+        <div className='button-options'>
+          <CompleteItemButton/>
+          <EditItemButton
+            item={props.item}
+            handleChange={props.handleChange}
+            handleUpdate={props.handleUpdate}
+            handleClick={props.handleClick}
+          />
+          <DeleteItemButton
+            handleDelete={props.handleDelete}
+            itemId={props.item.id}
+          />
+        </div>
+      </td>
 		</tr>
 	)
 }

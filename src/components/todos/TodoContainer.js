@@ -11,7 +11,8 @@ export default class TodoContainer extends React.Component {
       todoDescription: ''
     },
     todoList: [],
-    shouldUpdate: true
+    shouldUpdate: true,
+    currListItem: 0
   }
 
   componentWillMount() {
@@ -82,6 +83,34 @@ export default class TodoContainer extends React.Component {
     this.forceUpdate()
   }
 
+  handleEditClick = (event) => {
+    this.setState({
+      currListItem: event.target.name
+    })
+  }
+
+  handleUpdate = (event) => {
+    event.preventDefault()
+    fetch(`http://127.0.0.1:3000/api/v1/todos/${this.state.currListItem}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        user_id: `${this.props.userId}`,
+        todo_name: `${this.state.newTodo.todoName}`,
+        todo_type: `${this.state.newTodo.todoType}`,
+        todo_description: `${this.state.newTodo.todoDescription}`,
+        todo_deadline: `${this.state.newTodo.todoDeadline}`
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    this.setState({
+      shouldUpdate: true
+    })
+    this.forceUpdate()
+  }
+
   render() {
     console.log(this.state)
     console.log(this.props)
@@ -92,6 +121,8 @@ export default class TodoContainer extends React.Component {
           handleDelete={this.handleDelete}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          handleUpdate={this.handleUpdate}
+          handleClick={this.handleEditClick}
         />
       </div>
     )

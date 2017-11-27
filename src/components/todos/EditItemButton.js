@@ -1,9 +1,10 @@
 import React from 'react'
+import EditTodoModal from './EditTodoModal.js'
 import { Button, Popup } from 'semantic-ui-react'
 
-const EditItemButton = () => (
+const EditItemButton = (props) => (
   <Popup
-    trigger={<Button color='yellow' icon='edit' />}
+    trigger={<EditTodoModal handleClick={props.handleClick} item={props.item} handleChange={props.handleChange} handleUpdate={props.handleUpdate}/>}
     content='Edit Todo'
   />
 )
