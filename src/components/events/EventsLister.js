@@ -1,4 +1,5 @@
 import React from 'react'
+import AddEventModal from './AddEventModal.js'
 import { Button, Card, Image, Dimmer, Loader, Segment, Grid } from 'semantic-ui-react'
 
 
@@ -35,8 +36,8 @@ const EventsLister = (props) => {
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <div className='ui two buttons'>
-                    <Button basic className='large' color='green'>Add to To-Do List</Button>
+                  <div className='add-button'>
+                    <AddEventModal handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
                   </div>
                 </Card.Content>
               </Card>

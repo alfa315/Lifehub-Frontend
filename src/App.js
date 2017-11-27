@@ -66,7 +66,7 @@ class App extends Component {
           userId={this.state.currUserId} handleZipSubmit={this.handleEventsSubmit} handleZipChange={this.handleEventsChange}
           />}
         />
-        <Route exact path="/events" render={() => <EventsContainer zipCode={this.state.currUserZipCode}/>}
+        <Route exact path="/events" render={() => <EventsContainer zipCode={this.state.currUserZipCode} userId={this.state.currUserId}/>}
         />
       </div>
       )
