@@ -18,3 +18,13 @@
 .add-button {
   text-align: center;
 }
+
+.event-details {
+  text-align: center;
+  float: left;
+}
+
+.event-input {
+  float: right;
+  padding-right: 40px;
+}

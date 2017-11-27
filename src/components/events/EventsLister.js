@@ -37,7 +37,15 @@ const EventsLister = (props) => {
                 </Card.Content>
                 <Card.Content extra>
                   <div className='add-button'>
-                    <AddEventModal handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
+                    <AddEventModal
+                      handleChange={props.handleChange}
+                      handleSubmit={props.handleSubmit}
+                      eventName={event.name}
+                      eventImage={event.images[0].url}
+                      eventDate={event.dates.start.localDate}
+                      eventTime={event.dates.start.localTime}
+                      eventLocation={event._embedded.venues[0].name}
+                    />
                   </div>
                 </Card.Content>
               </Card>
