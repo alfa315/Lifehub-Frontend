@@ -3,13 +3,16 @@ import './App.css';
 import HomePage from './components/home/HomePage.js'
 import LoginForm from './components/login/LoginForm.js'
 import EventsContainer from './components/events/EventsContainer.js'
+import WeatherContainer from './components/weather/WeatherContainer.js'
 import { Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
   state = {
     currUsername: '',
     currUserId: null,
-    currUserSearch: 'New York'
+    currUserSearch: 'New York',
+    currUserHomeLocation: 'new%20york',  //need to add to fetchUser to get users location
+    weatherId: 0
   }
 
   fetchUser() {
@@ -27,6 +30,14 @@ class App extends Component {
     })
   }
 
+  fetchWeatherId() {
+    fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${this.state.currUserHomeLocation}`)
+    .then(res => res.json())
+    .then(data => this.setState({
+      weatherId: data[0].woeid
+    }))
+  }
+
   handleLoginChange = (event) => {
     this.setState({
       currUsername: event.target.value
@@ -36,6 +47,7 @@ class App extends Component {
   handleLoginSubmit = (event) => {
     event.preventDefault()
     this.fetchUser()
+    this.fetchWeatherId()
   }
 
   handleClick = (event) => {
@@ -68,6 +80,9 @@ class App extends Component {
         />
         <Route exact path="/events" render={() => <EventsContainer searchTerm={this.state.currUserSearch} userId={this.state.currUserId}/>}
         />
+        <Route exact path="/weather" render={() => <WeatherContainer
+          weatherId={this.state.weatherId}
+        />} />
       </div>
       )
     } else {

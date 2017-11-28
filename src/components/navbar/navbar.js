@@ -11,9 +11,9 @@ const NavBar = (props) => {
         <Link to ='/events' className="item">
           Events
         </Link>
-        <a className="item">
+        <Link to ='/weather' className="item">
           Weather
-        </a>
+        </Link>
       <div className="right menu" onClick={props.handleclick}>
         <Link to='/' className="ui item" >
           Logout

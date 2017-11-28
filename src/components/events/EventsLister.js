@@ -24,7 +24,7 @@ const EventsLister = (props) => {
                 <Card.Content>
                   <Image floated='right' size='small' src={event.images[0].url} />
                   <Card.Header>
-                    <font size='4'>{event.name}</font>
+                    <font size='3.7'>{event.name}</font>
                   </Card.Header>
                   <Card.Meta>
                   </Card.Meta>
