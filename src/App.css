@@ -37,11 +37,11 @@ body {
 
 .ui.card,
 .ui.cards>.card {
-  background-color: #E7DFDD;
+  background-color: #E9E9E9;
 }
 
 .ui.inverted.padded.table {
-  background-color: #E7DFDD;
+  background-color: #E9E9E9;
   color: black;
 }
 
@@ -58,6 +58,10 @@ h3 {
 }
 
 .ui.stackable.two.column.grid.events-grid {
+  padding-top: 70px;
+}
+
+.ui.stackable.three.column.grid.weather-grid {
   padding-top: 70px;
 }
 

@@ -4,7 +4,7 @@ import { Card, Image, Dimmer, Loader, Segment, Grid } from 'semantic-ui-react'
 
 
 const EventsLister = (props) => {
-  if(props.userEvents.length === 0 || props.userEvents === undefined ) {
+  if(props.userEvents.length === 0) {
     return (
       <div className='ui-segment'>
         <Segment>
@@ -14,25 +14,29 @@ const EventsLister = (props) => {
         </Segment>
       </div>
     )
+  } else if(props.userEvents === undefined) {
+    return(
+      window.alert("Weather Data unavailable at the moment, please try again.")
+    )
   } else {
     return <Grid className='events-grid' stackable columns={2}>
-      {props.userEvents.map((event) => {
+      {props.userEvents.map((ev) => {
         return(
           <Grid.Column>
             <Card.Group>
               <Card centered>
                 <Card.Content>
-                  <Image floated='right' size='small' src={event.images[0].url} />
+                  <Image floated='right' size='small' src={ev.images[0].url} />
                   <Card.Header>
-                    <font size='3.7'>{event.name}</font>
+                    <font size='3.7'>{ev.name}</font>
                   </Card.Header>
                   <Card.Meta>
                   </Card.Meta>
                   <Card.Description>
-                    <p>{event._embedded.venues[0].name}</p>
-                    <p>{event.dates.start.localDate}</p>
-                    <p>{event.dates.start.localTime}</p>
-                    <a href={event.url} >Buy Tickets</a>
+                    <p>{ev._embedded.venues[0].name}</p>
+                    <p>{ev.dates.start.localDate}</p>
+                    <p>{ev.dates.start.localTime}</p>
+                    <a href={ev.url} >Buy Tickets</a>
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -40,11 +44,11 @@ const EventsLister = (props) => {
                     <AddEventModal
                       handleChange={props.handleChange}
                       handleSubmit={props.handleSubmit}
-                      eventName={event.name}
-                      eventImage={event.images[0].url}
-                      eventDate={event.dates.start.localDate}
-                      eventTime={event.dates.start.localTime}
-                      eventLocation={event._embedded.venues[0].name}
+                      eventName={ev.name}
+                      eventImage={ev.images[0].url}
+                      eventDate={ev.dates.start.localDate}
+                      eventTime={ev.dates.start.localTime}
+                      eventLocation={ev._embedded.venues[0].name}
                     />
                   </div>
                 </Card.Content>

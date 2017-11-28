@@ -16,7 +16,7 @@ export default class WeatherContainer extends React.Component {
     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${this.props.weatherId}`)
     .then(res => res.json())
     .then(data => this.setState({
-      weatherForecast: data
+      weatherForecast: data.consolidated_weather
     }))
   }
 
@@ -25,7 +25,7 @@ export default class WeatherContainer extends React.Component {
     return(
       <div>
         <NavBar />
-        <WeeklyWeather />
+        <WeeklyWeather weatherData={this.state.weatherForecast}/>
       </div>
     )
   }
