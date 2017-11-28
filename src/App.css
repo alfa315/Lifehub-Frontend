@@ -1,6 +1,12 @@
 .App {
   text-align: center;
-  background-color: white;
+  background-size: auto;
+  color: white;
+  margin-bottom: 0px;
+}
+
+body {
+  background-color: #4717F6;
 }
 
 .todo-list-header {
@@ -29,10 +35,28 @@
   padding-right: 40px;
 }
 
-.events-list {
-  padding-top: 30px;
+.ui.card,
+.ui.cards>.card {
+  background-color: #E7DFDD;
 }
 
-.button-options {
-  display: inline;
+.ui.inverted.padded.table {
+  background-color: #E7DFDD;
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+.button-options-1, .button-options-2, .button-options-3 {
+  display: inline-block;
+}
+
+.ui.container {
+  padding-top: 50px;
+}
+
+.ui.stackable.two.column.grid.events-grid {
+  padding-top: 40px;
 }

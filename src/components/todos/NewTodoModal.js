@@ -1,6 +1,6 @@
 import React from 'react'
 import NewTodoInput from './NewTodoInput.js'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Image, Modal } from 'semantic-ui-react'
 
 const NewTodoModal = (props) => {
   return(

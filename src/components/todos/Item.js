@@ -11,19 +11,23 @@ const Item = (props) => {
 			<td>{props.item.todo_description}</td>
       <td>{props.item.deadline}</td>
       <td>
-        <div className='button-options'>
-          <CompleteItemButton/>
-          <EditItemButton
-            item={props.item}
-            handleChange={props.handleChange}
-            handleUpdate={props.handleUpdate}
-            handleClick={props.handleClick}
-          />
-          <DeleteItemButton
-            handleDelete={props.handleDelete}
-            itemId={props.item.id}
-          />
-        </div>
+          <div className='button-options-1'>
+            <CompleteItemButton/>
+          </div>
+          <div className='button-options-2'>
+            <EditItemButton
+              item={props.item}
+              handleChange={props.handleChange}
+              handleUpdate={props.handleUpdate}
+              handleClick={props.handleClick}
+            />
+          </div>
+          <div className='button-options-3'>
+            <DeleteItemButton
+              handleDelete={props.handleDelete}
+              itemId={props.item.id}
+            />
+          </div>
       </td>
 		</tr>
 	)

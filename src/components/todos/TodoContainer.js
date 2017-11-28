@@ -106,7 +106,7 @@ export default class TodoContainer extends React.Component {
       }
     })
     this.setState({
-      shouldUpdate: true
+      shouldUpdate: true,
     })
     this.forceUpdate()
   }

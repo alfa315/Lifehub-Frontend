@@ -1,6 +1,6 @@
 import React from 'react'
 import EventTodoInput from './EventTodoInput.js'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Image, Modal } from 'semantic-ui-react'
 
 const AddEventModal = (props) => {
   return(

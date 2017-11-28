@@ -1,6 +1,6 @@
 import React from 'react'
 import AddEventModal from './AddEventModal.js'
-import { Button, Card, Image, Dimmer, Loader, Segment, Grid } from 'semantic-ui-react'
+import { Card, Image, Dimmer, Loader, Segment, Grid } from 'semantic-ui-react'
 
 
 const EventsLister = (props) => {
@@ -24,7 +24,7 @@ const EventsLister = (props) => {
                 <Card.Content>
                   <Image floated='right' size='small' src={event.images[0].url} />
                   <Card.Header>
-                    {event.name}
+                    <font size='4'>{event.name}</font>
                   </Card.Header>
                   <Card.Meta>
                   </Card.Meta>
