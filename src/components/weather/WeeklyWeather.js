@@ -7,7 +7,7 @@ const WeeklyWeather = (props) => {
       <div className='ui-segment'>
         <Segment>
           <Dimmer active>
-            <Loader size='huge' indeterminate>Preparing Files</Loader>
+            <Loader size='huge' indeterminate>Checking Weather...</Loader>
           </Dimmer>
         </Segment>
       </div>

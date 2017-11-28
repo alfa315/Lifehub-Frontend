@@ -12,7 +12,7 @@ class App extends Component {
     currUserId: null,
     currUserSearch: 'New York',
     currUserHomeLocation: 'new%20york',  //need to add to fetchUser to get users location
-    weatherId: 0
+    weatherId: 2459115
   }
 
   fetchUser() {
@@ -74,24 +74,37 @@ class App extends Component {
     return (
       <div className="App">
         <Redirect to='/home'/>
-        <Route exact path="/home" render={(props) => <HomePage handleClick={this.handleClick}
-          userId={this.state.currUserId} handleSearchSubmit={this.handleEventsSubmit} handleSearchChange={this.handleEventsChange}
+        <Route exact path="/home" render={(props) =>
+          <HomePage
+            handleClick={this.handleClick}
+            userId={this.state.currUserId}
+            handleSearchSubmit={this.handleEventsSubmit}
+            handleSearchChange={this.handleEventsChange}
+            weatherId={this.state.weatherId}
           />}
         />
-        <Route exact path="/events" render={() => <EventsContainer searchTerm={this.state.currUserSearch} userId={this.state.currUserId}/>}
+        <Route exact path="/events" render={() =>
+          <EventsContainer
+            searchTerm={this.state.currUserSearch}
+            userId={this.state.currUserId}
+          />}
         />
-        <Route exact path="/weather" render={() => <WeatherContainer
-          weatherId={this.state.weatherId}
-        />} />
+        <Route exact path="/weather" render={() =>
+          <WeatherContainer
+            weatherId={this.state.weatherId}
+          />}
+        />
       </div>
       )
     } else {
       return (
         <div>
-          <Route exact path="/" render={() => <LoginForm
-            handleChange={this.handleLoginChange}
-            handleSubmit={this.handleLoginSubmit}
-          />}/>
+          <Route exact path="/" render={() =>
+            <LoginForm
+              handleChange={this.handleLoginChange}
+              handleSubmit={this.handleLoginSubmit}
+            />}
+          />
         </div>
       )
     }

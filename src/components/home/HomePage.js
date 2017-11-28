@@ -6,6 +6,22 @@ import HomeWeatherDisplay from '../weather/HomeWeatherDisplay.js'
 import { Grid, Segment, Card } from 'semantic-ui-react'
 
 class HomePage extends Component {
+  state = {
+    weatherForecast: []
+  }
+
+  componentDidMount() {
+    this.fetchWeatherData()
+  }
+
+  fetchWeatherData() {
+    fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${this.props.weatherId}`)
+    .then(res => res.json())
+    .then(data => this.setState({
+      weatherForecast: data.consolidated_weather
+    }))
+  }
+
   render() {
     return (
       <div className="home-page">
@@ -30,17 +46,7 @@ class HomePage extends Component {
 
 
               <Card centered>
-                <Card.Content>
-                  <Card.Header>
-                    Daily Weather
-                  </Card.Header>
-                  <Card.Meta>
-                    weather meta info here
-                  </Card.Meta>
-                  <Card.Description>
-                    <HomeWeatherDisplay />
-                  </Card.Description>
-                </Card.Content>
+                <HomeWeatherDisplay weatherData={this.state.weatherForecast}/>
               </Card>
             </Card.Group>
 
