@@ -58,5 +58,9 @@ h3 {
 }
 
 .ui.stackable.two.column.grid.events-grid {
-  padding-top: 40px;
+  padding-top: 70px;
+}
+
+.below-nav {
+  padding-top: 50px;
 }

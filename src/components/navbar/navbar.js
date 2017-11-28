@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const NavBar = (props) => {
   return (
     <div className='navbar'>
-      <div className="ui inverted menu">
+      <div className="ui inverted fixed menu">
         <Link to='/home' className="item">
           Home
         </Link>
