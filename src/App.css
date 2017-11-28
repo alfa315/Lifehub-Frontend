@@ -68,3 +68,7 @@ h3 {
 .below-nav {
   padding-top: 50px;
 }
+
+.ui.segment, .loader {
+  padding-top: 150px;
+}

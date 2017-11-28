@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Button, Card, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Grid, Card, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
 
 const WeeklyWeather = (props) => {
   if(props.weatherData.length === 0) {

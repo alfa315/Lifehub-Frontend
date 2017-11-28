@@ -68,6 +68,13 @@ class App extends Component {
     event.preventDefault()
   }
 
+  handleWeatherChange = (event) => {
+    this.setState({
+      currUserHomeLocation: event.target.value.split(" ").join("%20")
+    })
+    this.fetchWeatherId()
+  }
+
   render() {
     console.log(this.state)
     if(this.state.currUserId) {
@@ -81,6 +88,7 @@ class App extends Component {
             handleSearchSubmit={this.handleEventsSubmit}
             handleSearchChange={this.handleEventsChange}
             weatherId={this.state.weatherId}
+            handleWeatherChange={this.handleWeatherChange}
           />}
         />
         <Route exact path="/events" render={() =>

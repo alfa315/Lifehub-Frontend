@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const HomeWeatherDisplay = (props) => {
   if(props.weatherData.length === 0 || props.weatherData === undefined) {
@@ -7,7 +8,7 @@ const HomeWeatherDisplay = (props) => {
       <div className='ui-segment'>
         <Segment>
           <Dimmer active>
-            <Loader size='huge' indeterminate>Looking at the sky...</Loader>
+            <Loader size='huge' active inline='center'>Looking at the sky...</Loader>
           </Dimmer>
         </Segment>
       </div>
@@ -25,6 +26,12 @@ const HomeWeatherDisplay = (props) => {
         <Card.Description>
           <p>Temperature High: {Math.round(props.weatherData[0].max_temp * (9/5) + 32)}</p>
           <p>Temperature Low: {Math.round(props.weatherData[0].min_temp * (9/5) + 32)}</p>
+          <form onChange={props.handleChange}>
+            <input type='text' placeholder='Enter City Name' />
+          </form>
+          <button > <Link to='/weather' className="item">
+            View Weather
+          </Link></button>
         </Card.Description>
       </Card.Content>
     )

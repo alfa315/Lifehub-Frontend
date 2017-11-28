@@ -3,7 +3,7 @@ import NavBar from '../navbar/navbar.js'
 import TodoContainer from '../todos/TodoContainer.js'
 import EventSearchBox from '../events/EventSearchBox.js'
 import HomeWeatherDisplay from '../weather/HomeWeatherDisplay.js'
-import { Grid, Segment, Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
 class HomePage extends Component {
   state = {
@@ -46,7 +46,7 @@ class HomePage extends Component {
 
 
               <Card centered>
-                <HomeWeatherDisplay weatherData={this.state.weatherForecast}/>
+                <HomeWeatherDisplay weatherData={this.state.weatherForecast} handleChange={this.props.handleWeatherChange}/>
               </Card>
             </Card.Group>
 

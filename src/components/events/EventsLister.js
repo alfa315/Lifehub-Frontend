@@ -1,17 +1,15 @@
 import React from 'react'
 import AddEventModal from './AddEventModal.js'
-import { Card, Image, Dimmer, Loader, Segment, Grid } from 'semantic-ui-react'
+import { Card, Image, Loader, Grid } from 'semantic-ui-react'
 
 
 const EventsLister = (props) => {
   if(props.userEvents.length === 0) {
     return (
-      <div className='ui-segment'>
-        <Segment>
-          <Dimmer active>
-            <Loader size='huge' indeterminate>Preparing Files</Loader>
-          </Dimmer>
-        </Segment>
+      <div className='ui-segment loader'>
+
+            <Loader size='huge' active inline indeterminate>Gathering Events</Loader>
+
       </div>
     )
   } else if(props.userEvents === undefined) {
