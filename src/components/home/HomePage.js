@@ -17,9 +17,7 @@ class HomePage extends Component {
   fetchWeatherData() {
     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${this.props.weatherId}`)
     .then(res => res.json())
-    .then(data => this.setState({
-      weatherForecast: data.consolidated_weather
-    }))
+    .then(data => this.setState({weatherForecast: data}))
   }
 
   render() {

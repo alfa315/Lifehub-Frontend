@@ -63,10 +63,16 @@ class App extends Component {
   }
 
   handleWeatherChange = (event) => {
-    this.setState({
-      currUserHomeLocation: event.target.value.split(" ").join("%20")
-    })
-    this.fetchWeatherId()
+    if(event.target.value === "") {
+      return this.setState({
+        currUserHomeLocation: 'new%20york'
+      })
+    } else {
+      this.setState({
+        currUserHomeLocation: event.target.value.split(" ").join("%20")
+      })
+      this.fetchWeatherId()
+    }
   }
 
   render() {

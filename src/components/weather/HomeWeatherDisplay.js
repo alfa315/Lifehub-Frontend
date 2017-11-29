@@ -17,17 +17,17 @@ const HomeWeatherDisplay = (props) => {
   } else {
     return(
       <Card.Content>
-        <Image floated='right' size='small' src={`https://www.metaweather.com/static/img/weather/${props.weatherData[0].weather_state_abbr}.svg`} />
+        <Image floated='right' size='small' src={`https://www.metaweather.com/static/img/weather/${props.weatherData.consolidated_weather[0].weather_state_abbr}.svg`} />
         <Card.Header>
-          <font size='3.7'>{props.weatherData[0].applicable_date}</font>
+          <font size='3.7'>{props.weatherData.title.toUpperCase()}</font>
         </Card.Header>
         <Card.Meta>
-          <p>{props.weatherData[0].weather_state_name}</p>
-          <p>{props.city.split('%20').join(" ").toUpperCase()}</p>
+          <p>{props.weatherData.consolidated_weather[0].weather_state_name}</p>
+          <p>{props.weatherData.consolidated_weather[0].applicable_date}</p>
         </Card.Meta>
         <Card.Description>
-          <p>Temperature High: {Math.round(props.weatherData[0].max_temp * (9/5) + 32)}</p>
-          <p>Temperature Low: {Math.round(props.weatherData[0].min_temp * (9/5) + 32)}</p>
+          <p>Temperature High: {Math.round(props.weatherData.consolidated_weather[0].max_temp * (9/5) + 32)}</p>
+          <p>Temperature Low: {Math.round(props.weatherData.consolidated_weather[0].min_temp * (9/5) + 32)}</p>
           <form onChange={props.handleChange}>
             <Input><input type='text' placeholder='Enter City Name' /></Input>
           </form>
