@@ -5,6 +5,7 @@ const NavBar = (props) => {
   return (
     <div className='navbar'>
       <div className="ui inverted fixed menu">
+        <div><h3 className='item'>LIFEHUB</h3></div>
         <Link to='/home' className="item">
           Home
         </Link>

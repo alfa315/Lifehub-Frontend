@@ -25,7 +25,6 @@ class HomePage extends Component {
       <div className="home-page">
         <NavBar handleclick={this.props.handleClick} />
         <div className='below-nav'>
-          <h1>LIFEHUB</h1>
 
             <Card.Group>
               <Card centered >

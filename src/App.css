@@ -66,7 +66,7 @@ h3 {
 }
 
 .below-nav {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 .ui.segment, .loader {
@@ -83,4 +83,12 @@ h3 {
 
 .weather-set-button {
   padding-top: 10px;
+}
+
+.login-div {
+  text-align: center;
+}
+
+.login-form-div {
+  padding-top: 250px;
 }

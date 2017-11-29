@@ -1,15 +1,11 @@
 import React from 'react'
-import { Grid, Card, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Grid, Card, Image, Loader } from 'semantic-ui-react'
 
 const WeeklyWeather = (props) => {
   if(props.weatherData.length === 0) {
     return (
-      <div className='ui-segment'>
-        <Segment>
-          <Dimmer active>
-            <Loader size='huge' indeterminate>Checking Weather...</Loader>
-          </Dimmer>
-        </Segment>
+      <div className='ui-segment loader'>
+        <Loader size='huge' active inline indeterminate>Checking Weather...</Loader>
       </div>
     )
   } else if(props.weatherData === undefined) {
