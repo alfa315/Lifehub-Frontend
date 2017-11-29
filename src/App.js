@@ -33,9 +33,7 @@ class App extends Component {
   fetchWeatherId() {
     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${this.state.currUserHomeLocation}`)
     .then(res => res.json())
-    .then(data => this.setState({
-      weatherId: data[0].woeid
-    }))
+    .then(data => data.length === 0  ? this.setState({weatherId: 2459115, currUserHomeLocation: 'new%20york'}) : this.setState({weatherId: data[0].woeid}))
   }
 
   handleLoginChange = (event) => {
@@ -64,10 +62,6 @@ class App extends Component {
     })
   }
 
-  handleEventsSubmit = (event) => {
-    event.preventDefault()
-  }
-
   handleWeatherChange = (event) => {
     this.setState({
       currUserHomeLocation: event.target.value.split(" ").join("%20")
@@ -85,10 +79,10 @@ class App extends Component {
           <HomePage
             handleClick={this.handleClick}
             userId={this.state.currUserId}
-            handleSearchSubmit={this.handleEventsSubmit}
             handleSearchChange={this.handleEventsChange}
             weatherId={this.state.weatherId}
             handleWeatherChange={this.handleWeatherChange}
+            city={this.state.currUserHomeLocation}
           />}
         />
         <Route exact path="/events" render={() =>

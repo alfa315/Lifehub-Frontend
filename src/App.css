@@ -72,3 +72,15 @@ h3 {
 .ui.segment, .loader {
   padding-top: 150px;
 }
+
+.event-search-input {
+  padding-top: 30px;
+}
+
+.event-search-button {
+  padding-top: 30px;
+}
+
+.weather-set-button {
+  padding-top: 10px;
+}

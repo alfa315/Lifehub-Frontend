@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Image, Segment, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { Button, Input } from 'semantic-ui-react'
 
 const HomeWeatherDisplay = (props) => {
   if(props.weatherData.length === 0 || props.weatherData === undefined) {
@@ -21,17 +22,18 @@ const HomeWeatherDisplay = (props) => {
           <font size='3.7'>{props.weatherData[0].applicable_date}</font>
         </Card.Header>
         <Card.Meta>
-          {props.weatherData[0].weather_state_name}
+          <p>{props.weatherData[0].weather_state_name}</p>
+          <p>{props.city.split('%20').join(" ").toUpperCase()}</p>
         </Card.Meta>
         <Card.Description>
           <p>Temperature High: {Math.round(props.weatherData[0].max_temp * (9/5) + 32)}</p>
           <p>Temperature Low: {Math.round(props.weatherData[0].min_temp * (9/5) + 32)}</p>
           <form onChange={props.handleChange}>
-            <input type='text' placeholder='Enter City Name' />
+            <Input><input type='text' placeholder='Enter City Name' /></Input>
           </form>
-          <button > <Link to='/weather' className="item">
+          <div className='weather-set-button'><Button basic size='tiny' > <font size="3.7"><Link to='/weather' style={{color: 'black'}} className="item">
             View Weather
-          </Link></button>
+          </Link></font></Button></div>
         </Card.Description>
       </Card.Content>
     )

@@ -39,14 +39,18 @@ class HomePage extends Component {
                     Enter Search Term to Find Events
                   </Card.Meta>
                   <Card.Description>
-                    <EventSearchBox handleSubmit={this.props.handleSearchSubmit} handleChange={this.props.handleSearchChange}/>
+                    <EventSearchBox handleChange={this.props.handleSearchChange}/>
                   </Card.Description>
                 </Card.Content>
               </Card>
 
 
               <Card centered>
-                <HomeWeatherDisplay weatherData={this.state.weatherForecast} handleChange={this.props.handleWeatherChange}/>
+                <HomeWeatherDisplay
+                  weatherData={this.state.weatherForecast}
+                  handleChange={this.props.handleWeatherChange}
+                  city={this.props.city}
+                />
               </Card>
             </Card.Group>
 
