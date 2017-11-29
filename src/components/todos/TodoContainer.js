@@ -64,13 +64,6 @@ export default class TodoContainer extends React.Component {
     event.target.reset()
   }
 
-  shouldComponentUpdate() {
-    return this.state.shouldUpdate === true
-  }
-
-  componentDidUpdate() {
-    this.fetchTodos()
-  }
 
   handleDelete = (event) => {
     fetch(`http://127.0.0.1:3000/api/v1/todos/${event.target.name}`, {
@@ -109,6 +102,14 @@ export default class TodoContainer extends React.Component {
       shouldUpdate: true,
     })
     this.forceUpdate()
+  }
+
+  shouldComponentUpdate() {
+    return this.state.shouldUpdate === true
+  }
+
+  componentDidUpdate() {
+    this.fetchTodos()
   }
 
   render() {

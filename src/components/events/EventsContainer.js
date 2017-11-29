@@ -5,6 +5,8 @@ import EventsLister from './EventsLister.js'
 export default class EventsContainer extends React.Component {
   state = {
     myEvents: [],
+    pageNumber: 0,
+    maxPages: 1,
     newTodo: {
       todoName: '',
       todoType: '',
@@ -14,10 +16,15 @@ export default class EventsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${this.props.searchTerm.split(" ").join("%20")}&apikey=u7p895FVKQxrpr0AENRKDrGDasWP2OLC`)
+    this.fetchEvents()
+  }
+
+  fetchEvents = () => {
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${this.props.searchTerm.split(" ").join("%20")}&page=${this.state.pageNumber}&apikey=u7p895FVKQxrpr0AENRKDrGDasWP2OLC`)
      .then(response => response.json())
      .then(data => this.setState({
-       myEvents: data._embedded.events
+       myEvents: data._embedded.events,
+       maxPages: data.page.totalPages
     }))
   }
 
@@ -52,6 +59,13 @@ export default class EventsContainer extends React.Component {
     event.target.reset()
   }
 
+  handleClick = (event) => {
+    this.setState({
+      pageNumber: parseInt(event.target.text) - 1
+    }, () =>this.fetchEvents())
+
+  }
+
   render() {
     console.log(this.state)
     return(
@@ -60,7 +74,14 @@ export default class EventsContainer extends React.Component {
           <NavBar />
         </div>
         <div className='events-list'>
-          <EventsLister handleChange={this.handleChange} handleSubmit={this.handleSubmit} userEvents={this.state.myEvents}/>
+          <EventsLister
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            userEvents={this.state.myEvents}
+            pageNumber={this.state.pageNumber}
+            maxPages={this.state.maxPages}
+            handleClick={this.handleClick}
+          />
         </div>
       </div>
     )
