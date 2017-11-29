@@ -61,9 +61,9 @@ export default class EventsContainer extends React.Component {
 
   handleClick = (event) => {
     this.setState({
-      pageNumber: parseInt(event.target.text) - 1
+      pageNumber: (parseInt(event.target.text, 10) - 1)
     }, () =>this.fetchEvents())
-
+    window.scroll(0,0)
   }
 
   render() {

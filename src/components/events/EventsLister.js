@@ -56,7 +56,9 @@ const EventsLister = (props) => {
           )
         })}
       </Grid>
-      <ListPagination pageNumber={props.pageNumber} maxPages={props.maxPages} handleClick={props.handleClick}/>
+      <div className='pagination-events'>
+        <ListPagination pageNumber={props.pageNumber} maxPages={props.maxPages} handleClick={props.handleClick}/>
+      </div>
     </div>
   }
 }
