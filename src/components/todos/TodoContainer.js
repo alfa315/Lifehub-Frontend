@@ -72,7 +72,7 @@ export default class TodoContainer extends React.Component {
     fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
       method: 'DELETE'
     }).then(res => {
-      const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id))
+      const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id, 10))
       return this.setState({
         shouldUpdate: true,
         todoList: updatedTodos
@@ -101,10 +101,15 @@ export default class TodoContainer extends React.Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
+    }).then(res => res.json())
+      .then(data => {
+        const editedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(this.state.currListItem, 10))
+        console.log(editedTodos)
+        return this.setState({
+          shouldUpdate: true,
+          todoList: [...editedTodos, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.deadline}]
+      })
     })
-    this.setState({
-      shouldUpdate: true,
-    }, () => this.fetchTodos())
   }
 
   render() {
