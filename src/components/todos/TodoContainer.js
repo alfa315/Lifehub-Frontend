@@ -26,7 +26,7 @@ export default class TodoContainer extends React.Component {
 		 .then(data => this.setState({
        todoList: data.todos,
        shouldUpdate: false
-    }))
+    }, () => this.forceUpdate()))
 	}
 
   postTodo = () => {
@@ -59,21 +59,22 @@ export default class TodoContainer extends React.Component {
     this.postTodo()
     this.setState({
       shouldUpdate: true
-    })
-    this.forceUpdate()
+    }, () => this.fetchTodos())
     event.target.reset()
   }
 
 
   handleDelete = (event) => {
-    fetch(`http://127.0.0.1:3000/api/v1/todos/${event.target.name}`, {
+    const id = event.target.name
+    fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
       method: 'DELETE'
+    }).then(res => {
+      const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id))
+      return this.setState({
+        shouldUpdate: true,
+        todoList: updatedTodos
+      })
     })
-    console.log(event.target)
-    this.setState({
-      shouldUpdate: true
-    })
-    this.forceUpdate()
   }
 
   handleEditClick = (event) => {
@@ -100,16 +101,7 @@ export default class TodoContainer extends React.Component {
     })
     this.setState({
       shouldUpdate: true,
-    })
-    this.forceUpdate()
-  }
-
-  shouldComponentUpdate() {
-    return this.state.shouldUpdate === true
-  }
-
-  componentDidUpdate() {
-    this.fetchTodos()
+    }, () => this.fetchTodos())
   }
 
   render() {

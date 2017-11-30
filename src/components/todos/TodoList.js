@@ -7,7 +7,7 @@ export default class TodoList extends React.Component {
   render() {
     let todoRows = this.props.list.map((todo, idx) => <Item item={todo} key={idx} handleDelete={this.props.handleDelete} handleChange={this.props.handleChange} handleUpdate={this.props.handleUpdate} handleClick={this.props.handleClick} />)
     return(
-      <div className="ui container">
+      <div className="ui container main">
         <h1 className="todo-list-header">Current To-Do List</h1>
         <NewTodoModal
           handleChange={this.props.handleChange}
