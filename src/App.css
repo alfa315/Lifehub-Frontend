@@ -101,3 +101,11 @@ h3 {
 .ui.container.main {
   padding-bottom: 50px;
 }
+
+.trivia-labels {
+  margin-left: 40px;
+}
+
+.trivia-div {
+  text-align: center;
+}

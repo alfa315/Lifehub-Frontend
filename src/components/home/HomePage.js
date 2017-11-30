@@ -3,6 +3,7 @@ import NavBar from '../navbar/navbar.js'
 import TodoContainer from '../todos/TodoContainer.js'
 import EventSearchBox from '../events/EventSearchBox.js'
 import HomeWeatherDisplay from '../weather/HomeWeatherDisplay.js'
+import TriviaContainer from '../trivia/TriviaContainer.js'
 import { Card } from 'semantic-ui-react'
 
 class HomePage extends Component {
@@ -67,17 +68,7 @@ class HomePage extends Component {
               </Card>
 
               <Card centered >
-                <Card.Content>
-                  <Card.Header>
-                    Question of the Day
-                  </Card.Header>
-                  <Card.Meta>
-                    goal meta data
-                  </Card.Meta>
-                  <Card.Description>
-                    <p>Question of the Day</p>
-                  </Card.Description>
-                </Card.Content>
+                <TriviaContainer />
               </Card>
             </Card.Group>
 
