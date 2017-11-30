@@ -31,17 +31,12 @@ export default class TriviaContainer extends React.Component {
     } else {
       return this.setState({answerResult: false})
     }
-    console.log(this.state.answerResult)
-    console.log(typeof this.state.selectedAnswer)
-    console.log(typeof this.state.correctAnswer)
   }
 
   handleChange = (event) => {
     this.setState({
       selectedAnswer: event.target.value
     })
-    console.log(event.target.value)
-    console.log(this.state)
   }
 
   handleClick = (event) => {

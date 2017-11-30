@@ -2,7 +2,7 @@ import React from 'react'
 import QuestionForm from './QuestionForm.js'
 import CorrectAnswerDisplay from './CorrectAnswerDisplay.js'
 import WrongAnswerDisplay from './WrongAnswerDisplay.js'
-import { Card, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader } from 'semantic-ui-react'
 
 const QuestionDisplay = (props) => {
   if(props.question.length === 0 || props.question === undefined) {
