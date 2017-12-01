@@ -102,10 +102,18 @@ h3 {
   padding-bottom: 50px;
 }
 
+.trivia-input {
+  margin-right: 25px;
+}
+
 .trivia-labels {
-  margin-left: 40px;
+  text-align: right;
 }
 
 .trivia-div {
-  text-align: center;
+  padding-top: 10px
+}
+
+.trivia-submit {
+  padding-top: 25px;
 }

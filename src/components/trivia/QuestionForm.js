@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import he from 'he'
 
 const QuestionForm = (props) => {
@@ -23,25 +23,27 @@ const QuestionForm = (props) => {
               {he.decode(choices[props.answerOrder[0]])}
             </label>
           </div>
-          <div>
+          <div className='trivia-div'>
             <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[1]]}/>
             <label className='trivia-labels'>
               {he.decode(choices[props.answerOrder[1]])}
             </label>
           </div>
-          <div>
+          <div className='trivia-div'>
             <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[2]]}/>
             <label className='trivia-labels'>
               {he.decode(choices[props.answerOrder[2]])}
             </label>
           </div>
-          <div>
+          <div className='trivia-div'>
             <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[3]]}/>
             <label className='trivia-labels'>
               {he.decode(choices[props.answerOrder[3]])}
             </label>
           </div>
-          <input name='trivia' type='submit' />
+          <div className='trivia-submit'>
+            <Button basic size='tiny' > <font size="3.7" style={{color: 'black'}}>Submit</font></Button>
+          </div>
         </form>
 
       </Card.Description>
