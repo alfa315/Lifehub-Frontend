@@ -18,27 +18,27 @@ const QuestionForm = (props) => {
         <strong>Question</strong><p>{he.decode(props.question.question)}</p>
         <form onSubmit={props.handleSubmit} onChange={props.handleChange}>
           <div className='trivia-div'>
-            <input className='trivia-input' type='radio' name='trivia' value={choices[0]}/>
+            <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[0]]}/>
             <label className='trivia-labels'>
-              {he.decode(choices[0])}
+              {he.decode(choices[props.answerOrder[0]])}
             </label>
           </div>
           <div>
-            <input className='trivia-input' type='radio' name='trivia' value={choices[1]}/>
+            <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[1]]}/>
             <label className='trivia-labels'>
-              {he.decode(choices[1])}
+              {he.decode(choices[props.answerOrder[1]])}
             </label>
           </div>
           <div>
-            <input className='trivia-input' type='radio' name='trivia' value={choices[2]}/>
+            <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[2]]}/>
             <label className='trivia-labels'>
-              {he.decode(choices[2])}
+              {he.decode(choices[props.answerOrder[2]])}
             </label>
           </div>
           <div>
-            <input className='trivia-input' type='radio' name='trivia' value={choices[3]}/>
+            <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[3]]}/>
             <label className='trivia-labels'>
-              {he.decode(choices[3])}
+              {he.decode(choices[props.answerOrder[3]])}
             </label>
           </div>
           <input name='trivia' type='submit' />

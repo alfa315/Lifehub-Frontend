@@ -37,6 +37,7 @@ const QuestionDisplay = (props) => {
         handleChange={props.handleChange}
         handleSubmit={props.handleSubmit}
         question={props.question}
+        answerOrder={props.answerOrder}
       />
     )
   }

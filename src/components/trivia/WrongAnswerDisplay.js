@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Button } from 'semantic-ui-react'
+import he from 'he'
 
 const WrongAnswerDisplay = (props) => {
   return(
@@ -9,6 +10,7 @@ const WrongAnswerDisplay = (props) => {
       </Card.Header>
       <Card.Description>
         <p>Question Difficulty: {props.question.difficulty.toUpperCase()}</p>
+        <p>Correct Answer: {he.decode(props.question.correct_answer)}</p>
         <p>Overall Results</p>
         <p>Correct: </p>
         <p>Incorrect: </p>

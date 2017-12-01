@@ -7,11 +7,13 @@ export default class TriviaContainer extends React.Component {
     currentQuestion: [],
     selectedAnswer: '',
     correctAnswer: '',
-    answerResult: null
+    answerResult: null,
+    answerOrder: [0, 1, 2, 3]
   }
 
   componentWillMount() {
     this.fetchQuestion()
+    this.shuffle(this.state.answerOrder)
   }
 
   fetchQuestion = () => {
@@ -27,8 +29,10 @@ export default class TriviaContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     if(this.state.selectedAnswer === this.state.correctAnswer) {
+      this.shuffle(this.state.answerOrder)
       return this.setState({answerResult: true})
     } else {
+      this.shuffle(this.state.answerOrder)
       return this.setState({answerResult: false})
     }
   }
@@ -45,6 +49,24 @@ export default class TriviaContainer extends React.Component {
     }, () => this.fetchQuestion())
   }
 
+  shuffle = (array) => {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
 
   render() {
     return(
@@ -54,6 +76,7 @@ export default class TriviaContainer extends React.Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         handleClick={this.handleClick}
+        answerOrder={this.state.answerOrder}
       />
     )
   }
