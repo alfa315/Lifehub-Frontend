@@ -5,7 +5,7 @@ import EventSearchBox from '../events/EventSearchBox.js'
 import HomeWeatherDisplay from '../weather/HomeWeatherDisplay.js'
 import GoalsContainer from '../goals/GoalsContainer.js'
 import TriviaContainer from '../trivia/TriviaContainer.js'
-import { Card } from 'semantic-ui-react'
+import { Card, Container, Header, Button, Icon } from 'semantic-ui-react'
 
 class HomePage extends Component {
   state = {
@@ -26,6 +26,24 @@ class HomePage extends Component {
     return (
       <div className="home-page">
         <NavBar handleclick={this.props.handleClick} />
+        <Container className='home-header' fluid>
+          <Header
+            as='h1'
+            content='Imagine-a-Company'
+            inverted
+            style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em' }}
+          />
+          <Header
+            as='h2'
+            content='Do whatever you want when you want to.'
+            inverted
+            style={{ fontSize: '1.7em', fontWeight: 'normal' }}
+          />
+          <Button primary size='huge'>
+            Get Started
+            <Icon name='right arrow' />
+          </Button>
+        </Container>
         <div className='below-nav'>
 
             <Card.Group>

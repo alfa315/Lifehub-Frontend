@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #4717F6;
+  background-color: #414141;
 }
 
 .todo-list-header {
@@ -116,4 +116,9 @@ h3 {
 
 .trivia-submit {
   padding-top: 25px;
+}
+
+.home-header {
+  background-image: url("./life.jpeg");
+  background-size: 100%;
 }
