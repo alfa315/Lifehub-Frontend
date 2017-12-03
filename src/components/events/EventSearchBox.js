@@ -7,7 +7,7 @@ const EventSeachBox = (props) => {
     <div>
       <h4> Please enter your desired search term of location, event type, or event name to find events for you. </h4>
       <div className="event-search-input">
-        <form onChange={props.handleChange}>
+        <form onChange={props.handleChange} onSubmit={e => { e.preventDefault() }}>
           <Input><input icon='search' type="text" placeholder='Search Term'/></Input>
         </form>
       </div>

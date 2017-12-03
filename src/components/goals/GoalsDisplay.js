@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Segment, Dimmer, Loader } from 'semantic-ui-react'
 
 const GoalsDisplay = (props) => {
-  let num = Math.floor((Math.random() * props.goals.length) + 1)
   if(props.goals.length === 0 || props.goals === undefined) {
     return (
       <div className='ui-segment'>
@@ -20,10 +19,10 @@ const GoalsDisplay = (props) => {
           Goal of the Day
         </Card.Header>
         <Card.Meta>
-          <p>{props.goals[num].name}</p>
+          <p>{props.goals[props.num].name}</p>
         </Card.Meta>
         <Card.Description>
-          <p>{props.goals[num].description}</p>
+          <p>{props.goals[props.num].description}</p>
         </Card.Description>
       </Card.Content>
     )

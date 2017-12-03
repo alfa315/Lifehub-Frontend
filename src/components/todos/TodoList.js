@@ -12,7 +12,7 @@ export default class TodoList extends React.Component {
         <NewTodoModal
           handleChange={this.props.handleChange}
           handleSubmit={this.props.handleSubmit}/>
-    		<table className="ui inverted padded table">
+    		<table className="ui inverted single line table">
           <thead className='headers'>
             <tr>
               <th className='center aligned'>

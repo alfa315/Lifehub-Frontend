@@ -28,7 +28,7 @@ const HomeWeatherDisplay = (props) => {
         <Card.Description>
           <p>Temperature High: {Math.round(props.weatherData.consolidated_weather[0].max_temp * (9/5) + 32)}</p>
           <p>Temperature Low: {Math.round(props.weatherData.consolidated_weather[0].min_temp * (9/5) + 32)}</p>
-          <form onChange={props.handleChange}>
+          <form onChange={props.handleChange} onSubmit={e => { e.preventDefault(); }}>
             <Input><input type='text' placeholder='Enter City Name' /></Input>
           </form>
           <div className='weather-set-button'><Button basic size='tiny' > <font size="3.7"><Link to='/weather' style={{color: 'black'}} className="item">

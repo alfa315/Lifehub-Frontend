@@ -3,7 +3,8 @@ import GoalsDisplay from './GoalsDisplay.js'
 
 export default class GoalsContainer extends React.Component {
   state = {
-    goals: []
+    goals: [],
+    randomNum: null
   }
 
   componentWillMount() {
@@ -14,13 +15,14 @@ export default class GoalsContainer extends React.Component {
     fetch('http://localhost:3000/api/v1/goals')
 		 .then(response => response.json())
 		 .then(data => this.setState({
-       goals: data
+       goals: data,
+       randomNum: Math.floor((Math.random() * data.length) + 1)
     }))
   }
 
   render() {
     return(
-      <GoalsDisplay goals={this.state.goals} />
+      <GoalsDisplay goals={this.state.goals} num={this.state.randomNum}/>
     )
   }
 }
