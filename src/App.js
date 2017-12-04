@@ -25,7 +25,9 @@ class App extends Component {
         return alert('User does not exist, please sign-in as a valid user or sign-up')
       } else {
         return this.setState({
-          currUserId: currentUser.id
+          currUserId: currentUser.id,
+          currUserSearch: currentUser.location,
+          currUserHomeLocation: currentUser.location.split(" ").join("%20")
         })
       }
     })

@@ -37,7 +37,7 @@ export default class TodoContainer extends React.Component {
         todo_name: `${this.state.newTodo.todoName}`,
         todo_type: `${this.state.newTodo.todoType}`,
         todo_description: `${this.state.newTodo.todoDescription}`,
-        todo_deadline: `${this.state.newTodo.todoDeadline}`
+        deadline: `${this.state.newTodo.todoDeadline}`
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export default class TodoContainer extends React.Component {
       .then(data => {
         return this.setState({
           shouldUpdate: true,
-          todoList: [...this.state.todoList, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.deadline}]
+          todoList: [...this.state.todoList, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.todoDeadline}]
       })
     })
   }
@@ -107,7 +107,7 @@ export default class TodoContainer extends React.Component {
         console.log(editedTodos)
         return this.setState({
           shouldUpdate: true,
-          todoList: [...editedTodos, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.deadline}]
+          todoList: [...editedTodos, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.todoDeadline}]
       })
     })
   }
