@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './components/home/HomePage.js'
 import LoginForm from './components/login/LoginForm.js'
 import EventsContainer from './components/events/EventsContainer.js'
+import NoEventsPage from './components/events/NoEventsPage.js'
 import WeatherContainer from './components/weather/WeatherContainer.js'
 import { Route, Redirect } from 'react-router-dom'
 
@@ -95,7 +96,6 @@ class App extends Component {
           <EventsContainer
             searchTerm={this.state.currUserSearch}
             userId={this.state.currUserId}
-            handleSearchChange={this.handleEventsChange}
           />}
         />
         <Route exact path="/weather" render={() =>
@@ -103,11 +103,16 @@ class App extends Component {
             weatherId={this.state.weatherId}
           />}
         />
+        <Route exact path="/unavailable" render={() =>
+          <NoEventsPage
+          handleChange={this.handleEventsChange}/>}
+        />
       </div>
       )
     } else {
       return (
         <div>
+          <Redirect to='/' />
           <Route exact path="/" render={() =>
             <LoginForm
               handleChange={this.handleLoginChange}

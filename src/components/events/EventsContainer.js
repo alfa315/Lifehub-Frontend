@@ -84,7 +84,6 @@ export default class EventsContainer extends React.Component {
             pageNumber={this.state.pageNumber}
             maxPages={this.state.maxPages}
             handleClick={this.handleClick}
-            eventsSearch={this.props.handleSearchChange}
           />
         </div>
       </div>

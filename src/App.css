@@ -7,7 +7,7 @@
 
 body {
   background-image: url("./color3.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -144,4 +144,8 @@ h3 {
 .ui.inverted.header {
   padding-bottom: 60px;
   color: rgb(44, 71, 73);
+}
+
+.not-found-header {
+  padding-top: 70px;
 }

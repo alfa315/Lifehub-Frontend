@@ -1,9 +1,8 @@
 import React from 'react'
 import AddEventModal from './AddEventModal.js'
 import ListPagination from './ListPagination.js'
-import NoEventsPage from './NoEventsPage.js'
 import { Card, Image, Loader, Grid } from 'semantic-ui-react'
-import { Route } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 
 const EventsLister = (props) => {
@@ -15,11 +14,7 @@ const EventsLister = (props) => {
     )
   } else if(props.userEvents === 'No events found') {
     return(
-      <Route exact path="/unavailable" render={() =>
-        <NoEventsPage
-        handleChange={props.eventsSearch}/>}
-      />
-
+      <Redirect to='/unavailable'/>
     )
   } else {
     return <div>
