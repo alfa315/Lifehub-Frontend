@@ -12,7 +12,10 @@ const Item = (props) => {
       <td>{props.item.deadline}</td>
       <td>
           <div className='button-options-1'>
-            <CompleteItemButton/>
+            <CompleteItemButton
+              itemId={props.item.id}
+              handleClick={props.handleCompleteClick}
+            />
           </div>
           <div className='button-options-2'>
             <EditItemButton

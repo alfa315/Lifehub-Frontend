@@ -112,6 +112,43 @@ export default class TodoContainer extends React.Component {
     })
   }
 
+  handleCompleteClick = (event) => {
+    const id = event.target.name
+    fetch(`http://localhost:3000/api/v1/todos/${id}`)
+		 .then(response => response.json())
+		 .then(data => this.setState({
+       newTodo: {
+         ...this.state.newTodo,
+         todoName: data.todo_name,
+         todoType: data.todo_type,
+         todoDescription: data.todo_description
+       }
+    }))
+    fetch('http://127.0.0.1:3000/api/v1/completes', {
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: `${this.props.userId}`,
+        todo_name: `${this.state.newTodo.todoName}`,
+        todo_type: `${this.state.newTodo.todoType}`,
+        todo_description: `${this.state.newTodo.todoDescription}`,
+        completed_date: "test for now"
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
+      method: 'DELETE'
+    }).then(res => {
+      const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id, 10))
+      return this.setState({
+        shouldUpdate: true,
+        todoList: updatedTodos
+      })
+    })
+  }
+
   render() {
     console.log(this.state)
     console.log(this.props)
@@ -124,6 +161,7 @@ export default class TodoContainer extends React.Component {
           handleSubmit={this.handleSubmit}
           handleUpdate={this.handleUpdate}
           handleClick={this.handleEditClick}
+          handleCompleteClick={this.handleCompleteClick}
         />
       </div>
     )
