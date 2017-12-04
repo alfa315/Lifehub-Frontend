@@ -5,6 +5,7 @@ import LoginForm from './components/login/LoginForm.js'
 import EventsContainer from './components/events/EventsContainer.js'
 import NoEventsPage from './components/events/NoEventsPage.js'
 import WeatherContainer from './components/weather/WeatherContainer.js'
+import AnalyticsContainer from './components/analytics/AnalyticsContainer.js'
 import { Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
@@ -107,7 +108,12 @@ class App extends Component {
         />
         <Route exact path="/unavailable" render={() =>
           <NoEventsPage
-          handleChange={this.handleEventsChange}/>}
+          handleChange={this.handleEventsChange}
+          />}
+        />
+        <Route exact path="/analytics" render={() =>
+          <AnalyticsContainer
+          />}
         />
       </div>
       )
