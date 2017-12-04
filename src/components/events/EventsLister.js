@@ -1,19 +1,25 @@
 import React from 'react'
 import AddEventModal from './AddEventModal.js'
 import ListPagination from './ListPagination.js'
+import NoEventsPage from './NoEventsPage.js'
 import { Card, Image, Loader, Grid } from 'semantic-ui-react'
+import { Route } from 'react-router-dom'
 
 
 const EventsLister = (props) => {
-  if(props.userEvents.length === 0) {
+  if(props.userEvents.length === 0 || props.userEvents === undefined) {
     return (
       <div className='ui-segment loader'>
         <Loader size='huge' active inline indeterminate>Gathering Events</Loader>
       </div>
     )
-  } else if(props.userEvents === undefined) {
+  } else if(props.userEvents === 'No events found') {
     return(
-      window.alert("Weather Data unavailable at the moment, please try again.")
+      <Route exact path="/unavailable" render={() =>
+        <NoEventsPage
+        handleChange={props.eventsSearch}/>}
+      />
+
     )
   } else {
     return <div>

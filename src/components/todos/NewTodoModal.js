@@ -4,7 +4,7 @@ import { Button, Image, Modal } from 'semantic-ui-react'
 
 const NewTodoModal = (props) => {
   return(
-    <Modal trigger={<div className='modal-button'><Button color='green'>Add New To-Do</Button></div>}>
+    <div className='modal-button'><Modal trigger={<Button color='green'>Add New To-Do</Button>}>
         <Modal.Header>Add New To-Do</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
@@ -12,7 +12,7 @@ const NewTodoModal = (props) => {
             <NewTodoInput handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
           </Modal.Description>
         </Modal.Content>
-      </Modal>
+      </Modal></div>
   )
 }
 

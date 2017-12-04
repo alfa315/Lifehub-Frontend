@@ -22,7 +22,10 @@ export default class EventsContainer extends React.Component {
   fetchEvents = () => {
     fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${this.props.searchTerm.split(" ").join("%20")}&page=${this.state.pageNumber}&apikey=u7p895FVKQxrpr0AENRKDrGDasWP2OLC`)
      .then(response => response.json())
-     .then(data => this.setState({
+     .then(data => data.page.totalPages === 0 ? this.setState({
+       myEvents: 'No events found',
+       maxPages: data.page.totalPages
+    }) : this.setState({
        myEvents: data._embedded.events,
        maxPages: data.page.totalPages
     }))
@@ -81,6 +84,7 @@ export default class EventsContainer extends React.Component {
             pageNumber={this.state.pageNumber}
             maxPages={this.state.maxPages}
             handleClick={this.handleClick}
+            eventsSearch={this.props.handleSearchChange}
           />
         </div>
       </div>

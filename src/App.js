@@ -95,6 +95,7 @@ class App extends Component {
           <EventsContainer
             searchTerm={this.state.currUserSearch}
             userId={this.state.currUserId}
+            handleSearchChange={this.handleEventsChange}
           />}
         />
         <Route exact path="/weather" render={() =>

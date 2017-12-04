@@ -39,14 +39,14 @@ body {
 
 .ui.card,
 .ui.cards>.card {
-  background-color: #E9E9E9;
+  background-color: rgb(230, 231, 237);
   height: 325px;
   width: 300px;
   box-shadow: 10px 10px 5px grey;
 }
 
 .ui.inverted.single.line.table {
-  background-color: #E9E9E9;
+  background-color: rgb(230, 231, 237);
   color: black;
   width: 80%;
   margin-left: 70px;
@@ -123,10 +123,25 @@ h3 {
 }
 
 .home-header {
-  background-image: url("./life.jpeg");
-  background-size: 100%;
+  background-image: url("./life2.jpeg");
+  background-size: cover;
+  background-position: 10% 32%;
+
 }
 
 .ui.inverted.vertical.segment {
   margin-top: 125px;
+}
+
+.ui.inverted.fixed.menu {
+  background-color: rgb(44, 71, 73);
+}
+
+.ui.inverted.vertical.segment {
+  background-color: rgb(44, 71, 73);
+}
+
+.ui.inverted.header {
+  padding-bottom: 60px;
+  color: rgb(44, 71, 73);
 }
