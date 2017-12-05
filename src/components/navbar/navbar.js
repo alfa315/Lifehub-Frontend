@@ -15,11 +15,11 @@ const NavBar = (props) => {
         <Link to ='/weather' className="item">
           Weather
         </Link>
-        <Link to='/analytics' className="item">
-          Analytics
+      <div className="right menu">
+        <Link to='/profile' className="item">
+          Profile
         </Link>
-      <div className="right menu" onClick={props.handleclick}>
-        <Link to='/' className="ui item" >
+        <Link to='/' className="ui item"  onClick={props.handleclick} >
           Logout
         </Link>
       </div>

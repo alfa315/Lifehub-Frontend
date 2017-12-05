@@ -62,7 +62,7 @@ class HomePage extends Component {
 
 
                     <Card centered>
-                      <GoalsContainer />
+                      <GoalsContainer userId={this.props.userId}/>
                     </Card>
                 </div>
               </Grid.Column>

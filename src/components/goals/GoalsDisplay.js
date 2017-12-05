@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Card, Segment, Dimmer, Loader, Button } from 'semantic-ui-react'
 
 const GoalsDisplay = (props) => {
-  if(props.goals.length === 0 || props.goals === undefined) {
+  if(props.goals.length === 0 || props.goals === undefined || props.goals[props.num].name === undefined) {
     return (
       <div className='ui-segment'>
         <Segment>
@@ -22,7 +22,10 @@ const GoalsDisplay = (props) => {
           <p>{props.goals[props.num].name}</p>
         </Card.Meta>
         <Card.Description>
-          <p>{props.goals[props.num].description}</p>
+          <div className='goal-description-header'>
+            <h4>{props.goals[props.num].description}</h4>
+          </div>
+          
         </Card.Description>
       </Card.Content>
     )
