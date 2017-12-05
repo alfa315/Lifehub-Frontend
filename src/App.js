@@ -79,6 +79,12 @@ class App extends Component {
     }
   }
 
+  handleDemoClick = (event) => {
+    this.setState({
+      currUserId: 2
+    })
+  }
+
   render() {
     console.log(this.state)
     if(this.state.currUserId) {
@@ -125,6 +131,7 @@ class App extends Component {
             <LoginForm
               handleChange={this.handleLoginChange}
               handleSubmit={this.handleLoginSubmit}
+              handleClick={this.handleDemoClick}
             />}
           />
         </div>
