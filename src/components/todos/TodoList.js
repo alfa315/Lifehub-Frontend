@@ -5,13 +5,16 @@ import NewTodoModal from './NewTodoModal.js'
 export default class TodoList extends React.Component {
 
   render() {
-    let todoRows = this.props.list.map((todo, idx) => <Item item={todo} key={idx} handleDelete={this.props.handleDelete} handleChange={this.props.handleChange} handleUpdate={this.props.handleUpdate} handleClick={this.props.handleClick} handleCompleteClick={this.props.handleCompleteClick} />)
+    let todoRows = this.props.list.map((todo, idx) => <Item item={todo} key={idx} handleDelete={this.props.handleDelete} handleChange={this.props.handleChange} handleUpdate={this.props.handleUpdate} handleClick={this.props.handleClick} handleCompleteClick={this.props.handleCompleteClick} modalOpen={this.props.modalOpen} />)
     return(
       <div className="ui container main">
         <h1 className="todo-list-header">Current To-Do List</h1>
         <NewTodoModal
           handleChange={this.props.handleChange}
-          handleSubmit={this.props.handleSubmit}/>
+          handleSubmit={this.props.handleSubmit}
+          modalOpen={this.props.modalOpen}
+          handleClick={this.props.handleModalTrigger}
+        />
     		<table className="ui inverted single line table">
           <thead className='headers'>
             <tr>
