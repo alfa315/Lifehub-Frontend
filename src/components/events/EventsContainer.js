@@ -39,7 +39,7 @@ export default class EventsContainer extends React.Component {
         todo_name: `${this.state.newTodo.todoName}`,
         todo_type: `${this.state.newTodo.todoType}`,
         todo_description: `${this.state.newTodo.todoDescription}`,
-        todo_deadline: `${this.state.newTodo.todoDeadline}`
+        deadline: `${this.state.newTodo.todoDeadline}`
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -59,7 +59,6 @@ export default class EventsContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.postTodo()
-    event.target.reset()
   }
 
   handleClick = (event) => {

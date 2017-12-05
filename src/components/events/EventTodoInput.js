@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 const EventTodoInput = (props) => {
   return(
-    <form onChange={props.handleChange} onSubmit={props.handleSubmit}>
+    <form onChange={props.handleChange}>
       <label>Todo Name</label>
       <div className='todo-name'>
         <input type='text' name='todoName'/>
@@ -24,7 +26,9 @@ const EventTodoInput = (props) => {
       <div className="field">
         <textarea name='todoDescription' rows="2" ></textarea>
       </div>
-      <input type='submit'/>
+      <Button onClick={props.handleSubmit} basic size='tiny' > <font size="3.7"><Link to='/home' style={{color: 'black'}} className="item">
+        Submit
+      </Link></font></Button>
 
     </form>
   )
