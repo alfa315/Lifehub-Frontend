@@ -154,6 +154,16 @@ h3 {
   width: 500px;
 }
 
+.ui.centered.card.user-details-card {
+  width: 70%;
+  height: 100%;
+  text-align: center;
+}
+
+.user-details-div {
+  padding-top: 200px;
+}
+
 .login-header {
   text-align: center;
 }
@@ -161,4 +171,12 @@ h3 {
 .login-submit-button {
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.details-div {
+  float: left;
+}
+
+.stats-div {
+  float: right;
 }

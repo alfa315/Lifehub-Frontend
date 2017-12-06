@@ -119,6 +119,7 @@ class App extends Component {
         />
         <Route exact path="/profile" render={() =>
           <ProfileContainer
+            currUserId={this.state.currUserId}
           />}
         />
       </div>
