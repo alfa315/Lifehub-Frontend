@@ -32,9 +32,10 @@ class HomePage extends Component {
             as='h1'
             content='Welcome to LIFEHUB!'
             inverted
-            style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em' }}
+            style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '4em' }}
           />
           <Header
+            className='header-text'
             as='h2'
             content='Get organized. Get motived. A better life.'
             inverted

@@ -2,7 +2,6 @@
   text-align: center;
   background-size: auto;
   color: black;
-  margin-bottom: 0px;
 }
 
 body {
@@ -46,7 +45,7 @@ body {
 }
 
 .ui.green.button {
-  
+
 }
 
 .ui.inverted.celled.padded.table {
@@ -133,21 +132,21 @@ h3 {
 
 }
 
-.ui.inverted.vertical.segment {
-  margin-top: 125px;
-}
-
 .ui.inverted.fixed.menu {
   background-color: rgb(44, 71, 73);
 }
 
 .ui.inverted.vertical.segment {
   background-color: rgb(44, 71, 73);
+  margin-top: 125px;
 }
 
 .ui.inverted.header {
-  padding-bottom: 60px;
   color: rgb(44, 71, 73);
+}
+
+.ui.inverted.header.header-text {
+  padding-bottom: 50px;
 }
 
 .not-found-header {
