@@ -15,7 +15,7 @@ export default class TodoList extends React.Component {
           modalOpen={this.props.modalOpen}
           handleClick={this.props.handleModalTrigger}
         />
-    		<table className="ui inverted single line table">
+    		<table  className="ui inverted celled padded table">
           <thead className='headers'>
             <tr>
               <th className='center aligned'>

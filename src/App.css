@@ -45,12 +45,16 @@ body {
   box-shadow: 10px 10px 5px grey;
 }
 
-.ui.inverted.single.line.table {
+.ui.green.button {
+  
+}
+
+.ui.inverted.celled.padded.table {
   background-color: rgb(230, 231, 237);
   color: black;
   width: 80%;
-  margin-left: 70px;
   box-shadow: 10px 10px 5px grey;
+  margin: auto;
 }
 
 h3 {
