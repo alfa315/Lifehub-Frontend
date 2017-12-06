@@ -123,6 +123,7 @@ h3 {
 
 .trivia-submit {
   padding-top: 25px;
+  text-align: center;
 }
 
 .home-header {
@@ -178,8 +179,23 @@ h3 {
 
 .details-div {
   float: left;
+  padding-left: 200px;
 }
 
 .stats-div {
   float: right;
+  padding-right: 200px;
+}
+
+.ui.list.stats-list {
+  text-align: left;
+}
+
+.ui.list.details-list {
+  text-align: left;
+}
+
+.answer-list {
+  text-align: left;
+  padding-left: 20px;
 }

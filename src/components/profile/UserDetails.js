@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Input, Button } from 'semantic-ui-react'
+import { Card, Input, Button, List } from 'semantic-ui-react'
 
 const UserDetails = (props) => {
   return(
@@ -12,16 +12,20 @@ const UserDetails = (props) => {
        <Card.Description>
          <div className='details-div'>
             <h2>User Details</h2>
-            <h3>Username: {props.userInfo.username}</h3>
-            <h3>Name: {props.userInfo.first_name} {props.userInfo.last_name}</h3>
-            <h3>Location: {props.userInfo.location}</h3>
+            <List className='details-list'>
+              <List.Item>Username: {props.userInfo.username}</List.Item>
+              <List.Item>Name: {props.userInfo.first_name} {props.userInfo.last_name}</List.Item>
+              <List.Item>Location: {props.userInfo.location}</List.Item>
+            </List>
          </div>
          <div className='stats-div'>
            <h2>User Stats</h2>
-           <h3>Total To-Dos Outstanding: {props.remainingItems} </h3>
-           <h3>Total Tasks Completed: {props.completedItems} </h3>
-           <h3>Questions of the Day Correct: {props.correct} </h3>
-           <h3>Questions of the Day Incorrect: {props.incorrect} </h3>
+           <List className='stats-list'>
+             <List.Item>Total To-Dos Outstanding: {props.remainingItems} </List.Item>
+             <List.Item>Total Tasks Completed: {props.completedItems} </List.Item>
+             <List.Item>Questions of the Day Correct: {props.correct} </List.Item>
+             <List.Item>Questions of the Day Incorrect: {props.incorrect} </List.Item>
+           </List>
          </div>
        </Card.Description>
        </Card.Content>

@@ -30,6 +30,21 @@ export default class TodoContainer extends React.Component {
     }))
 	}
 
+  getDate = () => {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+    if(dd<10) {
+      dd = '0'+dd
+    }
+    if(mm<10) {
+        mm = '0'+mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    return today
+  }
+
   postTodo = () => {
     fetch('http://127.0.0.1:3000/api/v1/todos', {
       method: 'POST',
@@ -122,29 +137,20 @@ export default class TodoContainer extends React.Component {
     const id = event.target.name
     fetch(`http://localhost:3000/api/v1/todos/${id}`)
 		 .then(response => response.json())
-		 .then(data => this.setState({
-       newTodo: {
-         ...this.state.newTodo,
-         todoName: data.todo_name,
-         todoType: data.todo_type,
-         todoDescription: data.todo_description
-       }
-    }))
-    fetch('http://127.0.0.1:3000/api/v1/completes', {
+		 .then(data => fetch('http://127.0.0.1:3000/api/v1/completes', {
       method: 'POST',
       body: JSON.stringify({
         user_id: `${this.props.userId}`,
-        todo_name: `${this.state.newTodo.todoName}`,
-        todo_type: `${this.state.newTodo.todoType}`,
-        todo_description: `${this.state.newTodo.todoDescription}`,
-        completed_date: "test for now"
+        todo_name: `${data.todo_name}`,
+        todo_type: `${data.todo_type}`,
+        todo_description: `${data.todo_description}`,
+        completed_date: `${this.getDate()}`
       }),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    })
-    fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
+    }).then(res => fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
       method: 'DELETE'
     }).then(res => {
       const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id, 10))
@@ -152,7 +158,7 @@ export default class TodoContainer extends React.Component {
         shouldUpdate: true,
         todoList: updatedTodos
       })
-    })
+    })))
   }
 
   handleModalTrigger = () => {

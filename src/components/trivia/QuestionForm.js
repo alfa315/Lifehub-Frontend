@@ -16,7 +16,7 @@ const QuestionForm = (props) => {
       </Card.Meta>
       <Card.Description>
         <strong>Question</strong><p>{he.decode(props.question.question)}</p>
-        <form onSubmit={props.handleSubmit} onChange={props.handleChange}>
+        <form className='answer-list' onSubmit={props.handleSubmit} onChange={props.handleChange}>
           <div className='trivia-div'>
             <input className='trivia-input' type='radio' name='trivia' value={choices[props.answerOrder[0]]}/>
             <label className='trivia-labels'>
