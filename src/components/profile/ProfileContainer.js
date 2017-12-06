@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../navbar/navbar.js'
 import UserDetails from './UserDetails.js'
+import CompleteList from './CompleteList.js'
 
 export default class ProfileContainer extends React.Component {
   state = {
@@ -8,7 +9,8 @@ export default class ProfileContainer extends React.Component {
     completedItems: 0,
     remainingItems: 0,
     correct: 0,
-    Incorrect: 0
+    Incorrect: 0,
+    completeList: []
   }
 
   componentWillMount() {
@@ -23,7 +25,8 @@ export default class ProfileContainer extends React.Component {
        remainingItems: data.todos.length,
        completedItems: data.completes.length,
        correct: data.correct,
-       incorrect: data.incorrect
+       incorrect: data.incorrect,
+       completeList: data.completes
     }))
 	}
 
@@ -37,6 +40,9 @@ export default class ProfileContainer extends React.Component {
           remainingItems={this.state.remainingItems}
           correct={this.state.correct}
           incorrect={this.state.incorrect}
+        />
+        <CompleteList
+          completeList={this.state.completeList}
         />
       </div>
     )

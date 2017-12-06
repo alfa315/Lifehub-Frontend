@@ -14,31 +14,34 @@ const WeeklyWeather = (props) => {
     )
   } else {
     return(
-      <Grid className='weather-grid' stackable columns={3}>
-        {props.weatherData.map((day) => {
-          return(
-            <Grid.Column>
-              <Card.Group>
-                <Card centered>
-                  <Card.Content>
-                    <Image floated='right' size='small' src={`https://www.metaweather.com/static/img/weather/${day.weather_state_abbr}.svg`} />
-                    <Card.Header>
-                      <font size='3.7'>{day.applicable_date}</font>
-                    </Card.Header>
-                    <Card.Meta>
-                      {day.weather_state_name}
-                    </Card.Meta>
-                    <Card.Description>
-                      <p>Temperature High: {Math.round(day.max_temp * (9/5) + 32)}</p>
-                      <p>Temperature Low: {Math.round(day.min_temp * (9/5) + 32)}</p>
-                    </Card.Description>
-                  </Card.Content>
-                </Card>
-              </Card.Group>
-            </Grid.Column>
-          )
-        })}
-      </Grid>
+      <div className='weekly-weather'>
+        <h1>WEEKLY WEATHER FOR {props.city}</h1>
+        <Grid className='weather-grid' stackable columns={3}>
+          {props.weatherData.map((day) => {
+            return(
+              <Grid.Column>
+                <Card.Group>
+                  <Card centered>
+                    <Card.Content>
+                      <Image floated='right' size='small' src={`https://www.metaweather.com/static/img/weather/${day.weather_state_abbr}.svg`} />
+                      <Card.Header>
+                        <font size='3.7'>{day.applicable_date}</font>
+                      </Card.Header>
+                      <Card.Meta>
+                        {day.weather_state_name}
+                      </Card.Meta>
+                      <Card.Description>
+                        <p>Temperature High: {Math.round(day.max_temp * (9/5) + 32)}</p>
+                        <p>Temperature Low: {Math.round(day.min_temp * (9/5) + 32)}</p>
+                      </Card.Description>
+                    </Card.Content>
+                  </Card>
+                </Card.Group>
+              </Grid.Column>
+            )
+          })}
+        </Grid>
+      </div>
     )
   }
 }

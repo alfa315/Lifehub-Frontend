@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Input, Button, List } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const UserDetails = (props) => {
   return(
@@ -30,7 +31,9 @@ const UserDetails = (props) => {
        </Card.Description>
        </Card.Content>
        <Card.Content extra>
-         Return Home
+         <Button basic size='tiny' > <font size="3.7"><Link to='/home' style={{color: 'black'}} className="item">
+           Return Home
+         </Link></font></Button>
        </Card.Content>
       </Card>
     </div>
