@@ -9,7 +9,7 @@ const HomeWeatherDisplay = (props) => {
       <div className='ui-segment'>
         <Segment>
           <Dimmer active>
-            <Loader size='huge' active inline='center'>Looking at the sky...</Loader>
+            <Loader size='huge' active>Looking at the sky...</Loader>
           </Dimmer>
         </Segment>
       </div>

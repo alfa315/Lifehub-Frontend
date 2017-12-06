@@ -10,7 +10,7 @@ const QuestionDisplay = (props) => {
       <div className='ui-segment'>
         <Segment>
           <Dimmer active>
-            <Loader size='huge' active inline='center'>Thinking of something...</Loader>
+            <Loader size='huge' active>Thinking of something...</Loader>
           </Dimmer>
         </Segment>
       </div>

@@ -35,7 +35,6 @@ export default class  NewsContainer extends React.Component {
 
 
   render() {
-    console.log(this.state.news)
     return(
       <NewsDisplay
         goals={this.state.goals}

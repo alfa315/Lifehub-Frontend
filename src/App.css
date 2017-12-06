@@ -81,7 +81,8 @@ h3 {
 }
 
 .ui.segment, .loader {
-  padding-top: 150px;
+  padding-top: 250px;
+  color: white;
 }
 
 .event-search-input {
