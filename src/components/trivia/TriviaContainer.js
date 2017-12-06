@@ -8,11 +8,14 @@ export default class TriviaContainer extends React.Component {
     selectedAnswer: '',
     correctAnswer: '',
     answerResult: null,
-    answerOrder: [0, 1, 2, 3]
+    answerOrder: [0, 1, 2, 3],
+    correct: 0,
+    incorrect: 0
   }
 
   componentWillMount() {
     this.fetchQuestion()
+    this.fetchStats()
     this.shuffle(this.state.answerOrder)
   }
 
@@ -25,15 +28,51 @@ export default class TriviaContainer extends React.Component {
     }))
   }
 
+  fetchStats = () => {
+		fetch(`http://localhost:3000/api/v1/users/${this.props.userId}`)
+		 .then(response => response.json())
+		 .then(data => this.setState({
+       correct: data.correct,
+       incorrect: data.incorrect
+    }))
+	}
+
+
+  handleUpdateCorrect = (event) => {
+    fetch(`http://127.0.0.1:3000/api/v1/users/${this.props.userId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        correct: parseInt(`${this.state.correct}`, 10)
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+  }
+
+    handleUpdateIncorrect = (event) => {
+      fetch(`http://127.0.0.1:3000/api/v1/users/${this.props.userId}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          incorrect: parseInt(`${this.state.incorrect}`, 10)
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+    }
+
 
   handleSubmit = (event) => {
     event.preventDefault()
     if(this.state.selectedAnswer === this.state.correctAnswer) {
       this.shuffle(this.state.answerOrder)
-      return this.setState({answerResult: true})
+      return this.setState({answerResult: true, correct: this.state.correct + 1})
     } else {
       this.shuffle(this.state.answerOrder)
-      return this.setState({answerResult: false})
+      return this.setState({answerResult: false, incorrect: this.state.incorrect + 1})
     }
   }
 
@@ -50,21 +89,14 @@ export default class TriviaContainer extends React.Component {
   }
 
   shuffle = (array) => {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    // While there remain elements to shuffle...
+    let currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
-
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   }
 
@@ -77,6 +109,10 @@ export default class TriviaContainer extends React.Component {
         handleChange={this.handleChange}
         handleClick={this.handleClick}
         answerOrder={this.state.answerOrder}
+        handleCorrect={this.handleUpdateCorrect}
+        handleIncorrect={this.handleUpdateIncorrect}
+        correct={this.state.correct}
+        incorrect={this.state.incorrect}
       />
     )
   }

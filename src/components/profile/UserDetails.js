@@ -20,8 +20,8 @@ const UserDetails = (props) => {
            <h2>User Stats</h2>
            <h3>Total To-Dos Outstanding: {props.remainingItems} </h3>
            <h3>Total Tasks Completed: {props.completedItems} </h3>
-           <h3>Questions of the Day Correct: </h3>
-           <h3>Questions of the Day Incorrect:  </h3>
+           <h3>Questions of the Day Correct: {props.correct} </h3>
+           <h3>Questions of the Day Incorrect: {props.incorrect} </h3>
          </div>
        </Card.Description>
        </Card.Content>

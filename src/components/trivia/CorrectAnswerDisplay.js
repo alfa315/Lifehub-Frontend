@@ -10,8 +10,8 @@ const CorrectAnswerDisplay = (props) => {
       <Card.Description>
         <p>Question Difficulty: {props.question.difficulty.toUpperCase()}</p>
         <p>Overall Results</p>
-        <p>Correct: </p>
-        <p>Incorrect: </p>
+        <p>Correct: {props.correct}</p>
+        <p>Incorrect: {props.incorrect}</p>
       </Card.Description>
       <Button basic size='tiny' onClick={props.handleClick} > <font size="3.7" style={{color: 'black'}}>New Question?</font></Button>
     </Card.Content>

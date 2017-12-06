@@ -83,7 +83,7 @@ class HomePage extends Component {
                     </Card>
 
                     <Card centered >
-                      <TriviaContainer />
+                      <TriviaContainer userId={this.props.userId}/>
                     </Card>
 
                 </div>

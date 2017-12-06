@@ -40,7 +40,7 @@ body {
 .ui.card,
 .ui.cards>.card {
   background-color: rgb(230, 231, 237);
-  height: 325px;
+  height: 350px;
   width: 300px;
   box-shadow: 10px 10px 5px grey;
 }

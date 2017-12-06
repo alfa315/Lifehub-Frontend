@@ -6,7 +6,9 @@ export default class ProfileContainer extends React.Component {
   state = {
     userInfo: {},
     completedItems: 0,
-    remainingItems: 0
+    remainingItems: 0,
+    correct: 0,
+    Incorrect: 0
   }
 
   componentWillMount() {
@@ -19,7 +21,9 @@ export default class ProfileContainer extends React.Component {
 		 .then(data => this.setState({
        userInfo: data,
        remainingItems: data.todos.length,
-       completedItems: data.completes.length
+       completedItems: data.completes.length,
+       correct: data.correct,
+       incorrect: data.incorrect
     }))
 	}
 
@@ -31,6 +35,8 @@ export default class ProfileContainer extends React.Component {
           userInfo={this.state.userInfo}
           completedItems={this.state.completedItems}
           remainingItems={this.state.remainingItems}
+          correct={this.state.correct}
+          incorrect={this.state.incorrect}
         />
       </div>
     )

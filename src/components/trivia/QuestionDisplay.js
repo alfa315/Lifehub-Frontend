@@ -16,19 +16,25 @@ const QuestionDisplay = (props) => {
       </div>
     )
   } else if(props.answerResult === true) {
+    props.handleCorrect()
     return(
       <CorrectAnswerDisplay
         question={props.question}
         answerResult={props.answerResult}
         handleClick={props.handleClick}
+        correct={props.correct}
+        incorrect={props.incorrect}
       />
     )
   } else if(props.answerResult === false) {
+    props.handleIncorrect()
     return(
       <WrongAnswerDisplay
         question={props.question}
         answerResult={props.answerResult}
         handleClick={props.handleClick}
+        correct={props.correct}
+        incorrect={props.incorrect}
       />
     )
   } else {
