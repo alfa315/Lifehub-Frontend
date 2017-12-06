@@ -3,7 +3,7 @@ import NavBar from '../navbar/navbar.js'
 import TodoContainer from '../todos/TodoContainer.js'
 import EventSearchBox from '../events/EventSearchBox.js'
 import HomeWeatherDisplay from '../weather/HomeWeatherDisplay.js'
-import GoalsContainer from '../goals/GoalsContainer.js'
+import NewsContainer from '../news/NewsContainer.js'
 import TriviaContainer from '../trivia/TriviaContainer.js'
 import Footer from '../footer/Footer.js'
 import { Card, Container, Header, Grid } from 'semantic-ui-react'
@@ -63,7 +63,7 @@ class HomePage extends Component {
 
 
                     <Card centered>
-                      <GoalsContainer userId={this.props.userId}/>
+                      <NewsContainer userId={this.props.userId}/>
                     </Card>
                 </div>
               </Grid.Column>

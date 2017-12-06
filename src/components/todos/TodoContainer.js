@@ -12,8 +12,7 @@ export default class TodoContainer extends React.Component {
     },
     todoList: [],
     shouldUpdate: true,
-    currListItem: 0,
-    modalOpen: false
+    currListItem: 0
   }
 
   componentWillMount() {
@@ -79,9 +78,6 @@ export default class TodoContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.postTodo()
-    this.setState({
-      modalOpen: false
-    })
     event.target.reset()
   }
 
@@ -101,8 +97,7 @@ export default class TodoContainer extends React.Component {
 
   handleEditClick = (event) => {
     this.setState({
-      currListItem: event.target.name,
-      modalOpen: true
+      currListItem: event.target.name
     })
   }
 
@@ -127,8 +122,7 @@ export default class TodoContainer extends React.Component {
         console.log(editedTodos)
         return this.setState({
           shouldUpdate: true,
-          todoList: [...editedTodos, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.todoDeadline}],
-          modalOpen: false
+          todoList: [...editedTodos, {id: data.id, user_id: this.props.userId, todo_name: this.state.newTodo.todoName, todo_type: this.state.newTodo.todoType, todo_description: this.state.newTodo.todoDescription, deadline: this.state.newTodo.todoDeadline}]
       })
     })
   }
@@ -161,12 +155,6 @@ export default class TodoContainer extends React.Component {
     })))
   }
 
-  handleModalTrigger = () => {
-    this.setState({
-      modalOpen: true
-    })
-  }
-
   render() {
     console.log(this.state)
     console.log(this.props)
@@ -180,8 +168,6 @@ export default class TodoContainer extends React.Component {
           handleUpdate={this.handleUpdate}
           handleClick={this.handleEditClick}
           handleCompleteClick={this.handleCompleteClick}
-          modalOpen={this.state.modalOpen}
-          handleModalTrigger={this.handleModalTrigger}
         />
       </div>
     )

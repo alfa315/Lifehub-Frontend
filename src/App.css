@@ -204,3 +204,14 @@ h3 {
   padding-top: 60px;
   padding-bottom: 100px;
 }
+
+.news-list {
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 3px;
+}
+
+.news-subheader {
+  padding-top: 10px;
+  padding-bottom: 7px;
+}

@@ -35,7 +35,6 @@ const Item = (props) => {
               handleChange={props.handleChange}
               handleUpdate={props.handleUpdate}
               handleClick={props.handleClick}
-              modalOpen={props.modalOpen}
             />
           </div>
           <div className='button-options-3'>

@@ -8,7 +8,7 @@ export default class CompleteList extends React.Component {
     return(
       <div className="ui container main">
         <h1 className="todo-list-header">Completed To-Do List</h1>
-    		<table  className="ui inverted celled padded table">
+    		<table className="ui inverted celled padded table">
           <thead className='headers'>
             <tr>
               <th className='center aligned'>
