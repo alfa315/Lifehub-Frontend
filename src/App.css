@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ui.stackable.two.column.grid.events-grid {
-  padding-top: 70px;
+  padding-top: 30px;
 }
 
 .ui.stackable.three.column.grid.weather-grid {
@@ -173,7 +173,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .user-details-div {
-  padding-top: 200px;
+  padding-top: 130px;
+  padding-bottom: 75px;
 }
 
 .login-header {
@@ -243,4 +244,12 @@ font, header, .header {
 
 .arrow-icons {
   text-align: center;
+}
+
+.events-list-div {
+  padding-top: 100px;
+}
+
+.ui.container.main {
+  padding-bottom: 150px;
 }

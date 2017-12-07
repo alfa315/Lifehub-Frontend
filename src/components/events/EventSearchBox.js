@@ -5,7 +5,7 @@ import { Button, Input } from 'semantic-ui-react'
 const EventSeachBox = (props) => {
   return(
     <div>
-      <h4> Please enter your desired search term of location, event type, or event name to find events for you. </h4>
+      <h4> Please enter your desired event location, event type, or event name to find any related events for you. </h4>
       <div className="event-search-input">
         <form onChange={props.handleChange} onSubmit={e => { e.preventDefault() }}>
           <Input><input icon='search' type="text" placeholder='Search Term'/></Input>

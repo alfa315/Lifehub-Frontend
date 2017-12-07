@@ -83,7 +83,7 @@ export default class TodoContainer extends React.Component {
 
 
   handleDelete = (event) => {
-    const id = event.target.name
+    const id = event.target.name ? event.target.name : event.target.className.split(" ")[2]
     fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
       method: 'DELETE'
     }).then(res => {
@@ -128,7 +128,7 @@ export default class TodoContainer extends React.Component {
   }
 
   handleCompleteClick = (event) => {
-    const id = event.target.name
+    const id = event.target.name ? event.target.name : event.target.className.split(" ")[2]
     fetch(`http://localhost:3000/api/v1/todos/${id}`)
 		 .then(response => response.json())
 		 .then(data => fetch('http://127.0.0.1:3000/api/v1/completes', {

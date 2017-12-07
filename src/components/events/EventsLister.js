@@ -17,9 +17,9 @@ const EventsLister = (props) => {
       <Redirect to='/unavailable'/>
     )
   } else {
-    return <div>
+    return <div className='events-list-div'>
+    <h4>{props.totalItems} Events Found</h4>
       <Grid className='events-grid' stackable columns={2}>
-        <h5>{props.totalItems} Events Found</h5>
         {props.userEvents.map((ev) => {
           return(
             <Grid.Column>

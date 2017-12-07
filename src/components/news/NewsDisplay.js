@@ -9,15 +9,15 @@ const NewsDisplay = (props) => {
           <font size='3.7'>News</font>
         </Card.Header>
         <Card.Meta>
+        <div className='news-subheader'>
+          Trending Headlines
+        </div>
         </Card.Meta>
         <Card.Description>
-          <div className='news-subheader'>
-            <h5>Trending Headlines</h5>
-          </div>
           <div className='news-list'>
             <List>
               <List.Item>
-                <a href={props.links[props.numStart]}>{props.news[props.numStart]}</a>
+                <a style={{display: "table-cell"}} href={props.links[props.numStart]} target="_blank">{props.news[props.numStart]}</a>
               </List.Item>
               <img className='news-image'src={props.images[props.numStart]} alt={`news-${props.numStart}`}/>
               <div className='arrow-icons'>
