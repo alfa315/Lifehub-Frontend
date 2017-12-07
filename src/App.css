@@ -235,3 +235,12 @@ font, header, .header {
 .content.news-card {
   padding-top: 10px;
 }
+
+.news-image {
+  width: 275px;
+  height:170px;
+}
+
+.arrow-icons {
+  text-align: center;
+}

@@ -6,7 +6,9 @@ export default class  NewsContainer extends React.Component {
     goals: [],
     randomNum: null,
     news: [],
-    links: []
+    links: [],
+    images: [],
+    numStart: 0
   }
 
   componentWillMount() {
@@ -28,19 +30,31 @@ export default class  NewsContainer extends React.Component {
 		 .then(response => response.json())
 		 .then(data => this.setState({
        news: data.articles.map((item) => item.title),
-       links: data.articles.map((item) => item.url)
+       links: data.articles.map((item) => item.url),
+       images: data.articles.map((item) => item.urlToImage)
      }))
   }
 
+  handleClickUp = (event) => {
+    this.state.numStart < 9 ? this.setState({numStart: this.state.numStart + 1}) : null
+  }
 
+  handleClickDown = (event) => {
+    this.state.numStart > 0 ? this.setState({numStart: this.state.numStart - 1}) : null
+  }
 
   render() {
+
     return(
       <NewsDisplay
         goals={this.state.goals}
         num={this.state.randomNum}
         news={this.state.news}
         links={this.state.links}
+        images={this.state.images}
+        numStart={this.state.numStart}
+        upClick={this.handleClickUp}
+        downClick={this.handleClickDown}
       />
     )
   }
