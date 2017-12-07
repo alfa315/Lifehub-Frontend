@@ -16,19 +16,19 @@ export default class TodoList extends React.Component {
     		<table  className="ui inverted celled padded table">
           <thead className='headers'>
             <tr>
-              <th className='center aligned'>
+              <th className='center aligned collapsing'>
                 <h3>Name</h3>
               </th>
-              <th className='center aligned'>
+              <th className='center aligned collapsing'>
                 <h3>Type</h3>
               </th>
-              <th className='center aligned'>
+              <th className='center aligned collapsing'>
                 <h3>Description</h3>
               </th>
-              <th className='center aligned'>
+              <th className='center aligned collapsing'>
                 <h3>Deadline</h3>
               </th>
-              <th className='center aligned'>
+              <th className='center aligned collapsing'>
                 <h3>Options</h3>
               </th>
             </tr>

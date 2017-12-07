@@ -36,7 +36,7 @@ const EventsLister = (props) => {
                       <p>{ev._embedded.venues[0].name}</p>
                       <p>{ev.dates.start.localDate}</p>
                       <p>{ev.dates.start.localTime}</p>
-                      <a href={ev.url} >Buy Tickets</a>
+                      <a href={ev.url} target="_blank">Buy Tickets</a>
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>

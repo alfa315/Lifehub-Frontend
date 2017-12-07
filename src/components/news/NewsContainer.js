@@ -13,7 +13,7 @@ export default class  NewsContainer extends React.Component {
 
   componentWillMount() {
     this.fetchGoals()
-    // this.fetchNews()
+    this.fetchNews()
   }
 
   fetchGoals = () => {
