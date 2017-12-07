@@ -10,6 +10,7 @@ const Footer = (props) => {
         <a href="https://www.facebook.com/" target="_blank"><Button circular color='facebook' icon='facebook' /></a>
         <a href="https://twitter.com/" target="_blank"><Button circular color='twitter' icon='twitter' /></a>
         <a href="https://plus.google.com" target="_blank"><Button circular color='google plus' icon='google plus' /></a>
+        <a href="https://github.com/alfa315" target="_blank"><Button circular color='black' icon='github' /></a>
       </Container>
     </Segment>
   )

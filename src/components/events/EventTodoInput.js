@@ -12,8 +12,9 @@ const EventTodoInput = (props) => {
       <label> Select Todo Type </label>
       <div className='todo-type'>
         <select name="todoType" className="ui selection dropdown" id="select">
-          <option value="">Entertainment</option>
-          <option value="Events">Social Events</option>
+          <option value="">Select Type</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Social Events">Social Events</option>
           <option value="Errands">Errands</option>
         </select>
       </div>

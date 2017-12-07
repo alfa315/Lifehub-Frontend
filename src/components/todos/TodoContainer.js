@@ -97,7 +97,7 @@ export default class TodoContainer extends React.Component {
 
   handleEditClick = (event) => {
     this.setState({
-      currListItem: event.target.name
+      currListItem:  event.target.name ? event.target.name : event.target.className.split(" ")[2]
     })
   }
 

@@ -14,18 +14,25 @@ const UserDetails = (props) => {
          <div className='details-div'>
             <h2>User Details</h2>
             <List className='details-list'>
-              <List.Item>Username: {props.userInfo.username}</List.Item>
-              <List.Item>Name: {props.userInfo.first_name} {props.userInfo.last_name}</List.Item>
-              <List.Item>Location: {props.userInfo.location}</List.Item>
+              <List.Item>Username:</List.Item>
+                <List.List>{props.userInfo.username}</List.List>
+              <List.Item>Name:</List.Item>
+                <List.List>{props.userInfo.first_name} {props.userInfo.last_name}</List.List>
+              <List.Item>Location:</List.Item>
+                <List.List>{props.userInfo.location}</List.List>
             </List>
          </div>
          <div className='stats-div'>
            <h2>User Stats</h2>
            <List className='stats-list'>
-             <List.Item>Total To-Dos Outstanding: {props.remainingItems} </List.Item>
-             <List.Item>Total Tasks Completed: {props.completedItems} </List.Item>
-             <List.Item>Questions of the Day Correct: {props.correct} </List.Item>
-             <List.Item>Questions of the Day Incorrect: {props.incorrect} </List.Item>
+             <List.Item>Total To-Dos Outstanding:</List.Item>
+              <List.List>{props.remainingItems}</List.List>
+             <List.Item>Total Tasks Completed:</List.Item>
+              <List.List>{props.completedItems}</List.List>
+             <List.Item>Questions of the Day Correct:</List.Item>
+              <List.List>{props.incorrect}</List.List>
+             <List.Item>Questions of the Day Incorrect:</List.Item>
+              <List.List>{props.incorrect}</List.List>
            </List>
          </div>
        </Card.Description>

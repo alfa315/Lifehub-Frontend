@@ -4,7 +4,7 @@ import { Button, Image, Modal, Popup, Icon } from 'semantic-ui-react'
 
 const EditTodoModal = (props) => {
   return(
-    <Modal trigger={<div className='modal-button'><Popup name={props.item.id} trigger={<Button size='tiny' onClick={props.handleClick} name={props.item.id} color='yellow'> <Icon className={props.itemId} name='edit' /> </Button>} content='Edit To-Do'/></div>}>
+    <Modal trigger={<div className='modal-button'><Popup name={props.item.id} trigger={<Button size='tiny' onClick={props.handleClick} name={props.item.id} color='yellow'> <Icon className={props.item.id} name='edit' /> </Button>} content='Edit To-Do'/></div>}>
         <Modal.Header>Edit To-Do</Modal.Header>
         <Modal.Content image>
           <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
