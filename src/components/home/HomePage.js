@@ -37,7 +37,7 @@ class HomePage extends Component {
           <Header
             className='header-text'
             as='h2'
-            content='Get organized. Get motived. A better life.'
+            content='Get Organized. Get Motived. Get A Better Life.'
             inverted
             style={{ fontSize: '1.7em', fontWeight: 'normal' }}
           />
@@ -47,10 +47,10 @@ class HomePage extends Component {
             <Grid.Row>
               <Grid.Column width={4} className='left'>
                 <div className='home-left'>
-                    <Card centered >
+                    <Card centered className='event-box'>
                       <Card.Content>
                         <Card.Header>
-                          Event Search
+                          <font size='3.7'>Event Search</font>
                         </Card.Header>
                         <Card.Meta>
                           Enter Search Term to Find Events

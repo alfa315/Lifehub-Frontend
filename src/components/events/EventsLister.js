@@ -19,6 +19,7 @@ const EventsLister = (props) => {
   } else {
     return <div>
       <Grid className='events-grid' stackable columns={2}>
+        <h5>{props.totalItems} Events Found</h5>
         {props.userEvents.map((ev) => {
           return(
             <Grid.Column>
@@ -57,6 +58,7 @@ const EventsLister = (props) => {
           )
         })}
       </Grid>
+      <h5>Page {props.pageNumber + 1} of {props.maxPages} Pages</h5>
       <div className='pagination-events'>
         <ListPagination pageNumber={props.pageNumber} maxPages={props.maxPages} handleClick={props.handleClick}/>
       </div>

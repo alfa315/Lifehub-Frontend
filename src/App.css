@@ -8,6 +8,7 @@ body {
   background-image: url("./color3.jpg");
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Sanchez', serif;
 }
 
 .todo-list-header {
@@ -45,19 +46,20 @@ body {
 }
 
 .ui.green.button {
-
+  font-family: 'Sanchez', serif;
 }
 
 .ui.inverted.celled.padded.table {
   background-color: rgb(230, 231, 237);
   color: black;
-  width: 80%;
+  width: 100%;
   box-shadow: 10px 10px 5px grey;
   margin: auto;
 }
 
-h3 {
+h1, h2, h3, h4, h5, h6 {
   color: black;
+  font-family: 'Sanchez', serif;
 }
 
 .button-options-1, .button-options-2, .button-options-3 {
@@ -105,6 +107,10 @@ h3 {
   padding-top: 250px;
 }
 
+.ui.massive.positive.button, .ui.huge.basic.button {
+  font-family: 'Sanchez', serif;
+}
+
 .pagination-events {
   padding-top: 40px;
   margin-bottom: 40px;
@@ -131,7 +137,6 @@ h3 {
   background-image: url("./life2.jpeg");
   background-size: cover;
   background-position: 10% 32%;
-
 }
 
 .ui.inverted.fixed.menu {
@@ -145,10 +150,12 @@ h3 {
 
 .ui.inverted.header {
   color: rgb(44, 71, 73);
+  font-family: 'Sanchez', serif;
 }
 
 .ui.inverted.header.header-text {
   padding-bottom: 50px;
+  font-family: 'Sanchez', serif;
 }
 
 .not-found-header {
@@ -215,4 +222,16 @@ h3 {
 .news-subheader {
   padding-top: 10px;
   padding-bottom: 7px;
+}
+
+.footer-text {
+  padding-bottom: 35px;
+}
+
+font, header, .header {
+  font-family: 'Sanchez', serif;
+}
+
+.content.news-card {
+  padding-top: 10px;
 }

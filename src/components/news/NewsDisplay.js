@@ -4,9 +4,9 @@ import { Card, List } from 'semantic-ui-react'
 const NewsDisplay = (props) => {
   return(
     <div>
-      <Card.Content>
+      <Card.Content className='news-card'>
         <Card.Header>
-          <font size='4.7'><strong>News</strong></font>
+          <font size='3.7'>News</font>
         </Card.Header>
         <Card.Meta>
         </Card.Meta>

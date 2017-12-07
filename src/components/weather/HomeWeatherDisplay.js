@@ -19,7 +19,7 @@ const HomeWeatherDisplay = (props) => {
       <Card.Content>
         <Image floated='right' size='small' src={`https://www.metaweather.com/static/img/weather/${props.weatherData.consolidated_weather[0].weather_state_abbr}.svg`} />
         <Card.Header>
-          <font size='3.7'>{props.weatherData.title.toUpperCase()}</font>
+          <font size='3.7'>{props.weatherData.title}</font>
         </Card.Header>
         <Card.Meta>
           <p>{props.weatherData.consolidated_weather[0].weather_state_name}</p>

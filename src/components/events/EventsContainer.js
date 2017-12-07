@@ -7,6 +7,7 @@ export default class EventsContainer extends React.Component {
     myEvents: [],
     pageNumber: 0,
     maxPages: 1,
+    totalItems: 0,
     newTodo: {
       todoName: '',
       todoType: '',
@@ -27,7 +28,8 @@ export default class EventsContainer extends React.Component {
        maxPages: data.page.totalPages
     }) : this.setState({
        myEvents: data._embedded.events,
-       maxPages: data.page.totalPages
+       maxPages: data.page.totalPages,
+       totalItems: data.page.totalElements
     }))
   }
 
@@ -83,6 +85,7 @@ export default class EventsContainer extends React.Component {
             pageNumber={this.state.pageNumber}
             maxPages={this.state.maxPages}
             handleClick={this.handleClick}
+            totalItems={this.state.totalItems}
           />
         </div>
       </div>
