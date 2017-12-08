@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, List } from 'semantic-ui-react'
+import { Card, Button, List, Statistic } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const UserDetails = (props) => {
@@ -30,7 +30,7 @@ const UserDetails = (props) => {
              <List.Item>Total Tasks Completed:</List.Item>
               <List.List>{props.completedItems}</List.List>
              <List.Item>Questions of the Day Correct:</List.Item>
-              <List.List>{props.incorrect}</List.List>
+              <List.List>{props.correct}</List.List>
              <List.Item>Questions of the Day Incorrect:</List.Item>
               <List.List>{props.incorrect}</List.List>
            </List>

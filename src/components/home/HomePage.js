@@ -37,7 +37,7 @@ class HomePage extends Component {
           <Header
             className='header-text'
             as='h2'
-            content='Get Organized. Get Motived. Get A Better Life.'
+            content='Get Organized. Get Motivated. Get A Better Life.'
             inverted
             style={{ fontSize: '1.7em', fontWeight: 'normal' }}
           />
