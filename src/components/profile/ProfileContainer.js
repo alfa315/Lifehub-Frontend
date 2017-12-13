@@ -18,7 +18,7 @@ export default class ProfileContainer extends React.Component {
 	}
 
   fetchData = () => {
-		fetch(`http://localhost:3000/api/v1/users/${this.props.currUserId}`)
+		fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/users/${this.props.currUserId}`)
 		 .then(response => response.json())
 		 .then(data => this.setState({
        userInfo: data,

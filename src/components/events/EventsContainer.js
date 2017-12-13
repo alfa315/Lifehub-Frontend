@@ -34,7 +34,7 @@ export default class EventsContainer extends React.Component {
   }
 
   postTodo = () => {
-    fetch('http://127.0.0.1:3000/api/v1/todos', {
+    fetch('https://glacial-eyrie-97506.herokuapp.com/api/v1/todos', {
       method: 'POST',
       body: JSON.stringify({
         user_id: `${this.props.userId}`,

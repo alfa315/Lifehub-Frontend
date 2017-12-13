@@ -17,7 +17,7 @@ export default class  NewsContainer extends React.Component {
   }
 
   fetchGoals = () => {
-    fetch('http://localhost:3000/api/v1/goals')
+    fetch('https://glacial-eyrie-97506.herokuapp.com/api/v1/goals')
 		 .then(response => response.json())
 		 .then(data => this.setState({
        goals: data,

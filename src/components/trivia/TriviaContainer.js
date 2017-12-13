@@ -29,7 +29,7 @@ export default class TriviaContainer extends React.Component {
   }
 
   fetchStats = () => {
-		fetch(`http://localhost:3000/api/v1/users/${this.props.userId}`)
+		fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/users/${this.props.userId}`)
 		 .then(response => response.json())
 		 .then(data => this.setState({
        correct: data.correct,
@@ -39,7 +39,7 @@ export default class TriviaContainer extends React.Component {
 
 
   handleUpdateCorrect = (event) => {
-    fetch(`http://127.0.0.1:3000/api/v1/users/${this.props.userId}`, {
+    fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/users/${this.props.userId}`, {
       method: "PATCH",
       body: JSON.stringify({
         correct: parseInt(`${this.state.correct}`, 10)
@@ -52,7 +52,7 @@ export default class TriviaContainer extends React.Component {
   }
 
     handleUpdateIncorrect = (event) => {
-      fetch(`http://127.0.0.1:3000/api/v1/users/${this.props.userId}`, {
+      fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/users/${this.props.userId}`, {
         method: "PATCH",
         body: JSON.stringify({
           incorrect: parseInt(`${this.state.incorrect}`, 10)

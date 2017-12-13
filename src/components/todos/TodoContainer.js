@@ -21,7 +21,7 @@ export default class TodoContainer extends React.Component {
 
 
   fetchTodos = () => {
-		fetch(`http://localhost:3000/api/v1/users/${this.props.userId}`)
+		fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/users/${this.props.userId}`)
 		 .then(response => response.json())
 		 .then(data => this.setState({
        todoList: data.todos,
@@ -45,7 +45,7 @@ export default class TodoContainer extends React.Component {
   }
 
   postTodo = () => {
-    fetch('http://127.0.0.1:3000/api/v1/todos', {
+    fetch('https://glacial-eyrie-97506.herokuapp.com/api/v1/todos', {
       method: 'POST',
       body: JSON.stringify({
         user_id: `${this.props.userId}`,
@@ -84,7 +84,7 @@ export default class TodoContainer extends React.Component {
 
   handleDelete = (event) => {
     const id = event.target.name ? event.target.name : event.target.className.split(" ")[2]
-    fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
+    fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/todos/${id}`, {
       method: 'DELETE'
     }).then(res => {
       const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id, 10))
@@ -103,7 +103,7 @@ export default class TodoContainer extends React.Component {
 
   handleUpdate = (event) => {
     event.preventDefault()
-    fetch(`http://127.0.0.1:3000/api/v1/todos/${this.state.currListItem}`, {
+    fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/todos/${this.state.currListItem}`, {
       method: "PATCH",
       body: JSON.stringify({
         user_id: `${this.props.userId}`,
@@ -129,9 +129,9 @@ export default class TodoContainer extends React.Component {
 
   handleCompleteClick = (event) => {
     const id = event.target.name ? event.target.name : event.target.className.split(" ")[2]
-    fetch(`http://localhost:3000/api/v1/todos/${id}`)
+    fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/todos/${id}`)
 		 .then(response => response.json())
-		 .then(data => fetch('http://127.0.0.1:3000/api/v1/completes', {
+		 .then(data => fetch('https://glacial-eyrie-97506.herokuapp.com/api/v1/completes', {
       method: 'POST',
       body: JSON.stringify({
         user_id: `${this.props.userId}`,
@@ -144,7 +144,7 @@ export default class TodoContainer extends React.Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    }).then(res => fetch(`http://127.0.0.1:3000/api/v1/todos/${id}`, {
+    }).then(res => fetch(`https://glacial-eyrie-97506.herokuapp.com/api/v1/todos/${id}`, {
       method: 'DELETE'
     }).then(res => {
       const updatedTodos = this.state.todoList.filter(todo => todo.id !== parseInt(id, 10))

@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   fetchUser() {
-    fetch('http://localhost:3000/api/v1/users')
+    fetch('https://glacial-eyrie-97506.herokuapp.com/api/v1/users')
     .then(res => res.json())
     .then(data => {
       let currentUser = data.find((user) => user.username === this.state.currUsername)
